@@ -25,11 +25,11 @@ a{color:#F2EADD}a:hover{color:#FFFFFF}
 .m-hide{display:none!important}
 .m-header{height:64px!important;padding:0 var(--gut)!important}
 .m-header nav{display:none!important}
-.m-logo{width:38px!important;height:38px!important}
+.m-logo{height:50px!important}
 .m-brand{font-size:22px!important}
 .m-cta{height:38px!important;padding:0 14px!important;font-size:12px!important}
 .m-hero{height:auto!important;padding:48px 0 0!important;justify-content:flex-start!important}
-.m-hero-kicker{order:-1;position:static!important;margin-bottom:28px;font-size:11px!important;letter-spacing:.24em!important;gap:10px!important}
+.m-hero-kicker{order:-1;position:static!important;transform:none!important;margin-bottom:28px;font-size:11px!important;letter-spacing:.24em!important;gap:10px!important}
 .m-hero-kicker>span{width:20px!important}
 .m-hero-disc{position:relative!important;left:auto!important;bottom:auto!important;flex-shrink:0;width:min(160vw,1100px)!important;height:min(160vw,1100px)!important;margin:0 0 calc(min(160vw,1100px) * -0.16)!important;padding-top:min(18vw,150px);box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:22px}
 .m-hero-title{order:-1;position:static!important;font-size:clamp(58px,17vw,128px)!important}
@@ -71,7 +71,7 @@ a{color:#F2EADD}a:hover{color:#FFFFFF}
 
 <header class="m-header" style="position: relative; z-index: 5; height: 84px; box-sizing: border-box; padding: 0 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(201,162,74,0.25)">
 <div style="display: flex; align-items: center; gap: 14px">
-<img src="./assets/cab48f5ed3c30f3c101a7974c284d046.svg" alt="" class="m-logo" style="width: 48px; height: 48px">
+<img src="./assets/logo-light.png" alt="ЧГГ Live" class="m-logo" style="height: 64px; width: auto; display: block">
 <span class="m-brand" style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 26px; letter-spacing: 0.04em">ЧГГ <span style="color: #C9A24A; font-style: italic; font-weight: 600">Live</span></span>
 </div>
 <nav aria-label="Разделы" style="display: flex; gap: 36px; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase">
@@ -83,14 +83,14 @@ a{color:#F2EADD}a:hover{color:#FFFFFF}
 </header>
 
 <section class="m-hero" style="position: relative; height: {{heroH}}px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-sizing: border-box; padding: 0 64px">
-<div aria-hidden="true" class="m-hero-disc" style="position: absolute; left: 720px; bottom: -381px; width: 1100px; height: 1100px; margin-left: -550px; border-radius: 50%; background: radial-gradient(circle, #8E1B24 0%, #5C1017 55%, #2A0B0C 70%); box-shadow: 0 0 0 10px #0E0B0A, 0 0 0 16px #C9A24A, 0 0 140px 40px rgba(174,37,47,0.25)"><p class="m-hero-lead" style="margin: 0; max-width: 700px; font-size: 21px; line-height: 1.6; color: #D8CFC2; position: absolute; left: 200px; top: 468px">Шесть лет ЧГГ играли гости студии «Ошуительного Хоу». Теперь игра приезжает к&nbsp;вам: на&nbsp;корпоратив, праздник или вашу площадку.</p><h1 class="m-hero-title" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 150px; line-height: 0.9; letter-spacing: -0.01em; position: absolute; left: 253px; top: 115px">Ваш ход<br><span style="font-style: italic; color: rgb(232, 199, 116)">за&nbsp;столом</span>.</h1></div>
+<div aria-hidden="true" class="m-hero-disc" style="position: absolute; left: 50%; bottom: -381px; width: 1100px; height: 1100px; margin-left: -550px; border-radius: 50%; background: radial-gradient(circle, #8E1B24 0%, #5C1017 55%, #2A0B0C 70%); box-shadow: 0 0 0 10px #0E0B0A, 0 0 0 16px #C9A24A, 0 0 140px 40px rgba(174,37,47,0.25)"><p class="m-hero-lead" style="margin: 0; max-width: 700px; font-size: 21px; line-height: 1.6; color: #D8CFC2; position: absolute; left: 200px; top: 468px">Шесть лет ЧГГ играли гости студии «Ошуительного Хоу». Теперь игра приезжает к&nbsp;вам: на&nbsp;корпоратив, праздник или вашу площадку.</p><h1 class="m-hero-title" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 150px; line-height: 0.9; letter-spacing: -0.01em; position: absolute; left: 253px; top: 115px">Ваш ход<br><span style="font-style: italic; color: rgb(232, 199, 116)">за&nbsp;столом</span>.</h1></div>
 
 <div class="m-hero-cue" style="position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #F2EADD">
 <span style="display: flex; align-items: center; gap: 10px"><span style="width: 10px; height: 10px; border-radius: 50%; background: #E0303C; animation: rec 1.4s infinite"></span>Тсс. Идёт запись</span>
 <span style="font-size: 12px; color: #B9AFA3; letter-spacing: 0.2em">листайте медленно</span>
 <svg width="18" height="28" viewBox="0 0 18 28" fill="none" stroke="#C9A24A" stroke-width="1.5" style="animation: cue 1.8s infinite"><rect x="1" y="1" width="16" height="26" rx="8"></rect><path d="M9 7v6"></path></svg>
 </div>
-<div class="m-hero-kicker" style="display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A24A; position: absolute; left: 531px; top: 61px"><span style="width: 36px; height: 1px; background: #C9A24A"></span>Клуб знатоков приглашает<span style="width: 36px; height: 1px; background: #C9A24A"></span></div><div class="m-hide" style="position: absolute; display: flex; flex-direction: column; align-items: center; gap: 26px; margin-top: -120px; left: 423px; top: 258px; height: 362px">
+<div class="m-hero-kicker" style="display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A24A; position: absolute; left: 50%; transform: translateX(-50%); top: 61px"><span style="width: 36px; height: 1px; background: #C9A24A"></span>Клуб знатоков приглашает<span style="width: 36px; height: 1px; background: #C9A24A"></span></div><div class="m-hide" style="position: absolute; display: flex; flex-direction: column; align-items: center; gap: 26px; margin-top: -120px; left: 423px; top: 258px; height: 362px">
 
 
 
@@ -185,7 +185,7 @@ a{color:#F2EADD}a:hover{color:#FFFFFF}
 <div style="font-size: 16px; color: #5A5048; font-style: italic">{{m.d}}</div>
 </div>
 </sc-for>
-<div class="m-box-foot" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1A1614; padding-top: 22px; font-size: 15px; color: #5A5048"><span>Игроков: [N] · Партия: [длительность] · Правила объясняет Господин Академик</span><img src="./assets/cab48f5ed3c30f3c101a7974c284d046.svg" alt="" style="width: 56px; height: 56px"></div>
+<div class="m-box-foot" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1A1614; padding-top: 22px; font-size: 15px; color: #5A5048"><span>Игроков: [N] · Партия: [длительность] · Правила объясняет Господин Академик</span><img src="./assets/logo-dark.png" alt="" style="height: 76px; width: auto; flex-shrink: 0"></div>
 </div>
 </section>
 
