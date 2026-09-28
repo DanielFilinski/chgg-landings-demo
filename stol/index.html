@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=1440">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ЧГГ-Live — лендинг «Стол»</title>
 <script src="./vendor/react.js"></script>
 <script src="./vendor/react-dom.js"></script>
@@ -17,38 +17,86 @@ body{margin:0;background:#0E0B0A;font-family:'Manrope',system-ui,sans-serif;colo
 a{color:#F2EADD}a:hover{color:#FFFFFF}
 @keyframes rec{0%,100%{opacity:1}50%{opacity:.25}}
 @keyframes cue{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+/* Мобильная раскладка. Макет свёрстан инлайн-стилями под 1440 px, поэтому
+   переопределения идут через !important. Точка перелома совпадает с MOBILE_MQ в логике ниже. */
+:root{--gut:clamp(20px,5vw,48px)}
+@media (max-width:1023px){
+.m-root{min-width:0!important}
+.m-hide{display:none!important}
+.m-header{height:64px!important;padding:0 var(--gut)!important}
+.m-header nav{display:none!important}
+.m-logo{width:38px!important;height:38px!important}
+.m-brand{font-size:22px!important}
+.m-cta{height:38px!important;padding:0 14px!important;font-size:12px!important}
+.m-hero{height:auto!important;padding:48px 0 0!important;justify-content:flex-start!important}
+.m-hero-kicker{order:-1;position:static!important;margin-bottom:28px;font-size:11px!important;letter-spacing:.24em!important;gap:10px!important}
+.m-hero-kicker>span{width:20px!important}
+.m-hero-disc{position:relative!important;left:auto!important;bottom:auto!important;flex-shrink:0;width:min(160vw,1100px)!important;height:min(160vw,1100px)!important;margin:0 0 calc(min(160vw,1100px) * -0.16)!important;padding-top:min(18vw,150px);box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:22px}
+.m-hero-title{order:-1;position:static!important;font-size:clamp(58px,17vw,128px)!important}
+.m-hero-lead{position:static!important;max-width:min(88vw,600px)!important;font-size:17px!important}
+.m-hero-cue{bottom:24px!important;letter-spacing:.18em!important;white-space:nowrap}
+.m-scene{zoom:.72}
+.m-voices{grid-template-columns:minmax(0,1fr)!important;gap:36px!important;padding:8px var(--gut) 64px!important}
+.m-q{font-size:23px!important}
+.m-sec{padding:72px var(--gut)!important;gap:40px!important}
+.m-stack{grid-template-columns:minmax(0,1fr)!important;gap:28px!important}
+.m-h2{font-size:clamp(46px,12vw,80px)!important}
+/* «Не хватает игроков» склеено неразрывными пробелами — строка должна влезть целиком */
+.m-h2-nowrap{font-size:clamp(34px,9.6vw,80px)!important}
+.m-acts{grid-template-columns:minmax(0,1fr)!important}
+.m-act{padding:28px 0!important;border-left:0!important;border-bottom:1px solid #1A1614}
+.m-act-t{font-size:34px!important}
+.m-shots{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:10px!important}
+.m-shots img{height:44vw!important}
+.m-shots img:first-child{grid-column:1/-1}
+.m-shots-cap{margin-top:-28px!important}
+.m-unstick{position:static!important}
+.m-box{padding:32px 22px!important;box-shadow:8px 8px 0 #AE252F!important;gap:24px!important}
+.m-menu-row{flex-direction:column;align-items:flex-start!important;gap:8px!important}
+.m-menu-row>span:nth-child(2){display:none}
+.m-menu-t{white-space:normal!important;font-size:24px!important;line-height:1.1}
+.m-box-foot{gap:16px}
+.m-cols1{grid-template-columns:minmax(0,1fr)!important;gap:20px!important}
+.m-ticket-t{font-size:36px!important}
+.m-auto-h{min-height:0!important}
+.m-wolf{width:min(64vw,300px)!important;height:auto!important;aspect-ratio:300/401}
+.m-rsvp{width:100%!important;grid-template-columns:minmax(0,1fr)!important;gap:40px!important}
+.m-form{padding:26px 22px!important}
+.m-footer{height:auto!important;padding:28px var(--gut)!important;flex-direction:column;align-items:flex-start!important;gap:8px;text-align:left}
+}
+@media (max-width:600px){.m-scene{zoom:.4}}
 </style>
 </helmet>
-<div style="width: 100%; min-width: 1200px; background: #0E0B0A; color: #F2EADD; font-family: 'Manrope', sans-serif; display: flex; flex-direction: column">
+<div class="m-root" style="width: 100%; min-width: 1200px; background: #0E0B0A; color: #F2EADD; font-family: 'Manrope', sans-serif; display: flex; flex-direction: column">
 
-<header style="position: relative; z-index: 5; height: 84px; box-sizing: border-box; padding: 0 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(201,162,74,0.25)">
+<header class="m-header" style="position: relative; z-index: 5; height: 84px; box-sizing: border-box; padding: 0 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(201,162,74,0.25)">
 <div style="display: flex; align-items: center; gap: 14px">
-<img src="./assets/cab48f5ed3c30f3c101a7974c284d046.svg" alt="" style="width: 48px; height: 48px">
-<span style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 26px; letter-spacing: 0.04em">ЧГГ <span style="color: #C9A24A; font-style: italic; font-weight: 600">Live</span></span>
+<img src="./assets/cab48f5ed3c30f3c101a7974c284d046.svg" alt="" class="m-logo" style="width: 48px; height: 48px">
+<span class="m-brand" style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 26px; letter-spacing: 0.04em">ЧГГ <span style="color: #C9A24A; font-style: italic; font-weight: 600">Live</span></span>
 </div>
 <nav aria-label="Разделы" style="display: flex; gap: 36px; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase">
 <a href="#stol" style="color: #B9AFA3; text-decoration: none">Стол</a>
 <a href="#menu" style="color: #B9AFA3; text-decoration: none">Что в&nbsp;коробке</a>
 <a href="#formaty" style="color: #B9AFA3; text-decoration: none">Форматы</a>
 </nav>
-<a href="#rsvp" style="height: 44px; padding: 0 22px; display: flex; align-items: center; border: 1px solid #C9A24A; color: #F2EADD; text-decoration: none; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase">Пригласить</a>
+<a href="#rsvp" class="m-cta" style="height: 44px; padding: 0 22px; display: flex; align-items: center; border: 1px solid #C9A24A; color: #F2EADD; text-decoration: none; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase">Пригласить</a>
 </header>
 
-<section style="position: relative; height: {{heroH}}px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-sizing: border-box; padding: 0 64px">
-<div aria-hidden="true" style="position: absolute; left: 720px; bottom: -381px; width: 1100px; height: 1100px; margin-left: -550px; border-radius: 50%; background: radial-gradient(circle, #8E1B24 0%, #5C1017 55%, #2A0B0C 70%); box-shadow: 0 0 0 10px #0E0B0A, 0 0 0 16px #C9A24A, 0 0 140px 40px rgba(174,37,47,0.25)"><p style="margin: 0; max-width: 700px; font-size: 21px; line-height: 1.6; color: #D8CFC2; position: absolute; left: 200px; top: 468px">Шесть лет ЧГГ играли гости студии «Ошуительного Хоу». Теперь игра приезжает к&nbsp;вам: на&nbsp;корпоратив, праздник или вашу площадку.</p><h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 150px; line-height: 0.9; letter-spacing: -0.01em; position: absolute; left: 253px; top: 115px">Ваш ход<br><span style="font-style: italic; color: rgb(232, 199, 116)">за&nbsp;столом</span>.</h1></div>
+<section class="m-hero" style="position: relative; height: {{heroH}}px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-sizing: border-box; padding: 0 64px">
+<div aria-hidden="true" class="m-hero-disc" style="position: absolute; left: 720px; bottom: -381px; width: 1100px; height: 1100px; margin-left: -550px; border-radius: 50%; background: radial-gradient(circle, #8E1B24 0%, #5C1017 55%, #2A0B0C 70%); box-shadow: 0 0 0 10px #0E0B0A, 0 0 0 16px #C9A24A, 0 0 140px 40px rgba(174,37,47,0.25)"><p class="m-hero-lead" style="margin: 0; max-width: 700px; font-size: 21px; line-height: 1.6; color: #D8CFC2; position: absolute; left: 200px; top: 468px">Шесть лет ЧГГ играли гости студии «Ошуительного Хоу». Теперь игра приезжает к&nbsp;вам: на&nbsp;корпоратив, праздник или вашу площадку.</p><h1 class="m-hero-title" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 150px; line-height: 0.9; letter-spacing: -0.01em; position: absolute; left: 253px; top: 115px">Ваш ход<br><span style="font-style: italic; color: rgb(232, 199, 116)">за&nbsp;столом</span>.</h1></div>
 
-<div style="position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #F2EADD">
+<div class="m-hero-cue" style="position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #F2EADD">
 <span style="display: flex; align-items: center; gap: 10px"><span style="width: 10px; height: 10px; border-radius: 50%; background: #E0303C; animation: rec 1.4s infinite"></span>Тсс. Идёт запись</span>
 <span style="font-size: 12px; color: #B9AFA3; letter-spacing: 0.2em">листайте медленно</span>
 <svg width="18" height="28" viewBox="0 0 18 28" fill="none" stroke="#C9A24A" stroke-width="1.5" style="animation: cue 1.8s infinite"><rect x="1" y="1" width="16" height="26" rx="8"></rect><path d="M9 7v6"></path></svg>
 </div>
-<div style="display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A24A; position: absolute; left: 531px; top: 61px"><span style="width: 36px; height: 1px; background: #C9A24A"></span>Клуб знатоков приглашает<span style="width: 36px; height: 1px; background: #C9A24A"></span></div><div style="position: absolute; display: flex; flex-direction: column; align-items: center; gap: 26px; margin-top: -120px; left: 423px; top: 258px; height: 362px">
+<div class="m-hero-kicker" style="display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A24A; position: absolute; left: 531px; top: 61px"><span style="width: 36px; height: 1px; background: #C9A24A"></span>Клуб знатоков приглашает<span style="width: 36px; height: 1px; background: #C9A24A"></span></div><div class="m-hide" style="position: absolute; display: flex; flex-direction: column; align-items: center; gap: 26px; margin-top: -120px; left: 423px; top: 258px; height: 362px">
 
 
 
 </div></section>
 
-<section id="stol" style="position: relative; height: {{sceneH}}px">
+<section id="stol" class="m-scene" style="position: relative; height: {{sceneH}}px">
 <div style="position: sticky; top: 0; height: {{stageH}}px; overflow: hidden; background: #0B0908">
 
 <div aria-hidden="true" style="position: absolute; left: 50%; top: 0; width: 2px; height: {{cableH}}px; margin-left: -1px; background: #2A2320"></div>
@@ -59,7 +107,7 @@ a{color:#F2EADD}a:hover{color:#FFFFFF}
 
 <img src="./assets/02d2503389c68f07461140d01ca33696.png" alt="Гарик Харламов за столом" style="position: absolute; left: 50%; bottom: {{personBottom}}px; width: {{gW}}px; height: {{pH}}px; margin-left: {{gML}}px; opacity: {{gO}}; transform: translateY({{gY}}px); filter: blur({{gB}}px) brightness({{gBr}}); -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 98%); mask-image: linear-gradient(to bottom, #000 70%, transparent 98%)">
 
-<img src="./assets/d79b7df398bcfadeac2a97a6570de949.jpg" alt="Господин Академик за столом" style="position: absolute; left: 50%; bottom: {{personBottom}}px; width: {{aW}}px; height: {{pH}}px; margin-left: 110px; object-fit: cover; opacity: {{aO}}; transform: translateY({{aY}}px); filter: blur({{aB}}px) brightness({{aBr}}); -webkit-mask-image: radial-gradient(ellipse 60% 62% at 50% 40%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 60% 62% at 50% 40%, #000 55%, transparent 100%)">
+<img src="./assets/akademik-cutout.png" alt="Господин Академик за столом" style="position: absolute; left: 50%; bottom: {{personBottom}}px; width: {{aW}}px; height: {{pH}}px; margin-left: 110px; opacity: {{aO}}; transform: translateY({{aY}}px); filter: blur({{aB}}px) brightness({{aBr}}); -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 98%); mask-image: linear-gradient(to bottom, #000 70%, transparent 98%)">
 
 <div aria-hidden="true" style="position: absolute; left: 50%; bottom: 36px; width: 1040px; height: 250px; margin-left: -520px; border-radius: 50%; background: #1A1210; box-shadow: 0 30px 80px rgba(0,0,0,0.8)"></div>
 <div aria-hidden="true" style="position: absolute; left: 50%; bottom: 56px; width: 1000px; height: 220px; margin-left: -500px; border-radius: 50%; background: radial-gradient(ellipse at 50% 45%, #B32A33 0%, #8E1B24 55%, #5C1017 100%); box-shadow: inset 0 0 0 7px #C9A24A, inset 0 0 0 12px #5C1017; filter: brightness({{tableBr}})"></div>
@@ -78,7 +126,7 @@ a{color:#F2EADD}a:hover{color:#FFFFFF}
 </div>
 <div style="position: absolute; left: 50%; top: 120px; width: 900px; margin-left: -450px; text-align: center; opacity: {{vqO}}; transform: translateY({{vqY}}px)">
 <div style="display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #E0303C; margin-bottom: 18px"><span style="width: 9px; height: 9px; border-radius: 50%; background: #E0303C; animation: rec 1.4s infinite"></span>Господин Ведущий · голос сверху</div>
-<div style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 42px; line-height: 1.25">«Здравствуйте, уважаемые знатоки. Да, я не&nbsp;ошибся. Я долго думал, господин Академик делал расчёты, а&nbsp;Гарик просто кивнул. Моя главная задача&nbsp;— чтобы вам было хорошо».</div>
+<div style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 38px; line-height: 1.25">«Здравствуйте, уважаемые знатоки. Да, я не&nbsp;ошибся. Я долго думал, господин Академик делал расчёты, а&nbsp;Гарик просто кивнул. Теперь каждый из&nbsp;вас может стать полноправным участником клуба&nbsp;ЧГГ».</div>
 <div style="margin-top: 18px; font-size: 15px; color: #B9AFA3">Где он? Наверху. Шесть лет его никто не&nbsp;видел. На&nbsp;вашей игре тоже не&nbsp;увидит.</div>
 </div>
 <div style="position: absolute; right: 48px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 18px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase">
@@ -98,84 +146,84 @@ a{color:#F2EADD}a:hover{color:#FFFFFF}
 </section>
 
 <sc-if value="{{isStatic}}" hint-placeholder-val="{{true}}">
-<section aria-label="Три голоса" style="background: #0B0908; padding: 20px 64px 110px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; border-bottom: 1px solid rgba(201,162,74,0.25)">
-<div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #C9A24A; padding-top: 22px"><div style="font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A24A">Гарик Харламов</div><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; line-height: 1.35">«Доброго времени суток. В&nbsp;моём случае&nbsp;— любого, кроме утра. Шесть лет вы смеялись вместе со&nbsp;мной и&nbsp;ругали комиков за&nbsp;тупые ответы. Теперь можете сыграть сами. А&nbsp;если захотите&nbsp;— сяду с&nbsp;вами за&nbsp;один стол. Если не&nbsp;просплю».</div></div>
-<div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #C9A24A; padding-top: 22px"><div style="font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A24A">Господин Академик</div><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; line-height: 1.35">«Сразу вопрос. Что будет, если шоу, которое мы втроём делаем шесть лет, станет доступно каждому? Досрочный ответ: ЧГГ-Live. Вопросы пишу я. Лица кислые, как при&nbsp;просмотре телеканала „Культура“, не&nbsp;допускаются».</div></div>
-<div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #E0303C; padding-top: 22px"><div style="font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #E0303C">Господин Ведущий · голос сверху</div><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; line-height: 1.35">«Здравствуйте, уважаемые знатоки. Да, я не&nbsp;ошибся. Я долго думал, господин Академик делал расчёты, а&nbsp;Гарик просто кивнул. Моя главная задача&nbsp;— чтобы вам было хорошо».</div><div style="font-size: 15px; color: #B9AFA3">Шесть лет его никто не&nbsp;видел. На&nbsp;вашей игре тоже не&nbsp;увидит.</div></div>
+<section aria-label="Три голоса" class="m-voices" style="background: #0B0908; padding: 20px 64px 110px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; border-bottom: 1px solid rgba(201,162,74,0.25)">
+<div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #C9A24A; padding-top: 22px"><div style="font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A24A">Гарик Харламов</div><div class="m-q" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; line-height: 1.35">«Доброго времени суток. В&nbsp;моём случае&nbsp;— любого, кроме утра. Шесть лет вы смеялись вместе со&nbsp;мной и&nbsp;ругали комиков за&nbsp;тупые ответы. Теперь можете сыграть сами. А&nbsp;если захотите&nbsp;— сяду с&nbsp;вами за&nbsp;один стол. Если не&nbsp;просплю».</div></div>
+<div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #C9A24A; padding-top: 22px"><div style="font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A24A">Господин Академик</div><div class="m-q" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; line-height: 1.35">«Сразу вопрос. Что будет, если шоу, которое мы втроём делаем шесть лет, станет доступно каждому? Досрочный ответ: ЧГГ-Live. Вопросы пишу я. Лица кислые, как при&nbsp;просмотре телеканала „Культура“, не&nbsp;допускаются».</div></div>
+<div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #E0303C; padding-top: 22px"><div style="font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #E0303C">Господин Ведущий · голос сверху</div><div class="m-q" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; line-height: 1.35">«Здравствуйте, уважаемые знатоки. Да, я не&nbsp;ошибся. Я долго думал, господин Академик делал расчёты, а&nbsp;Гарик просто кивнул. Теперь каждый из&nbsp;вас может стать полноправным участником клуба&nbsp;ЧГГ».</div><div style="font-size: 15px; color: #B9AFA3">Шесть лет его никто не&nbsp;видел. На&nbsp;вашей игре тоже не&nbsp;увидит.</div></div>
 </section>
 </sc-if>
 
-<section style="background: #F2EADD; color: #1A1614; padding: 130px 64px 120px; display: flex; flex-direction: column; gap: 64px">
-<div style="display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 64px; align-items: end">
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 96px; line-height: 0.95">Вечер в&nbsp;трёх&nbsp;актах. <span style="font-style: italic; color: #AE252F">Антракт с&nbsp;комиком.</span></h2>
+<section class="m-sec" style="background: #F2EADD; color: #1A1614; padding: 130px 64px 120px; display: flex; flex-direction: column; gap: 64px">
+<div class="m-stack" style="display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 64px; align-items: end">
+<h2 class="m-h2" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 96px; line-height: 0.95">Вечер в&nbsp;трёх&nbsp;актах. <span style="font-style: italic; color: #AE252F">Антракт с&nbsp;комиком.</span></h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #5A5048">Не&nbsp;проклинать свою команду, как в&nbsp;обычном квизе, а&nbsp;хорошо провести вечер. Правила понятны всем. Даже Джигану&nbsp;— он у&nbsp;нас был. [Правила кратко]</p>
 </div>
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid #1A1614">
-<div style="padding: 36px 40px 0 0; display: flex; flex-direction: column; gap: 14px"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; color: #AE252F">Акт I</div><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 40px; line-height: 1.05">Квиз от&nbsp;Академика</div><div style="font-size: 17px; line-height: 1.6; color: #5A5048">От&nbsp;трёх до&nbsp;шести туров с&nbsp;разными механиками. Весело, но&nbsp;на&nbsp;логику. Первые пять минут все уверены, что знают ответ.</div></div>
-<div style="padding: 36px 40px 0; border-left: 1px solid #1A1614; display: flex; flex-direction: column; gap: 14px"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; color: #AE252F">Антракт</div><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 40px; line-height: 1.05">Комики шоу</div><div style="font-size: 17px; line-height: 1.6; color: #5A5048">Стендап и&nbsp;музыкальные номера между турами. Команды делают вид, что не&nbsp;спорят о&nbsp;прошлом вопросе.</div></div>
-<div style="padding: 36px 0 0 40px; border-left: 1px solid #1A1614; display: flex; flex-direction: column; gap: 14px"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; color: #AE252F">Акт II</div><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 40px; line-height: 1.05">Финал как в&nbsp;шоу</div><div style="font-size: 17px; line-height: 1.6; color: #5A5048">Игра до&nbsp;шести очков с&nbsp;Господином Ведущим. За&nbsp;ваш стол садится звезда и&nbsp;начинает подсказывать. Иногда правильно.</div></div>
+<div class="m-acts" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid #1A1614">
+<div class="m-act" style="padding: 36px 40px 0 0; display: flex; flex-direction: column; gap: 14px"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; color: #AE252F">Акт I</div><div class="m-act-t" style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 40px; line-height: 1.05">Квиз от&nbsp;Академика</div><div style="font-size: 17px; line-height: 1.6; color: #5A5048">От&nbsp;трёх до&nbsp;шести туров с&nbsp;разными механиками. Весело, но&nbsp;на&nbsp;логику. Первые пять минут все уверены, что знают ответ.</div></div>
+<div class="m-act" style="padding: 36px 40px 0; border-left: 1px solid #1A1614; display: flex; flex-direction: column; gap: 14px"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; color: #AE252F">Антракт</div><div class="m-act-t" style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 40px; line-height: 1.05">Комики шоу</div><div style="font-size: 17px; line-height: 1.6; color: #5A5048">Стендап и&nbsp;музыкальные номера между турами. Команды делают вид, что не&nbsp;спорят о&nbsp;прошлом вопросе.</div></div>
+<div class="m-act" style="padding: 36px 0 0 40px; border-left: 1px solid #1A1614; display: flex; flex-direction: column; gap: 14px"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; color: #AE252F">Акт II</div><div class="m-act-t" style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 40px; line-height: 1.05">Финал как в&nbsp;шоу</div><div style="font-size: 17px; line-height: 1.6; color: #5A5048">Игра до&nbsp;шести очков с&nbsp;Господином Ведущим. За&nbsp;ваш стол садится звезда и&nbsp;начинает подсказывать. Иногда правильно.</div></div>
 </div>
-<div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 20px">
+<div class="m-shots" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 20px">
 <img src="./assets/518a1b1415a1d258323490e5f06aaef2.jpg" alt="Съёмка ЧГГ в студии" style="width: 100%; height: 340px; object-fit: cover; display: block">
 <img src="./assets/cb1e44943b8d7205f1476ae8030e5810.jpg" alt="Гарик Харламов с гостями шоу" style="width: 100%; height: 340px; object-fit: cover; object-position: 50% 20%; display: block">
 <img src="./assets/25a7231160aa4ba301d67ab14b777b49.jpg" alt="Круг знатоков, вид сверху" style="width: 100%; height: 340px; object-fit: cover; display: block">
 </div>
-<div style="font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #5A5048; margin-top: -44px">Кадры из&nbsp;студии шоу</div>
+<div class="m-shots-cap" style="font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #5A5048; margin-top: -44px">Кадры из&nbsp;студии шоу</div>
 </section>
 
-<section id="menu" style="background: #0E0B0A; padding: 130px 64px; display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: 80px; align-items: start">
-<div style="display: flex; flex-direction: column; gap: 24px; position: sticky; top: 40px">
+<section id="menu" class="m-sec m-stack" style="background: #0E0B0A; padding: 130px 64px; display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: 80px; align-items: start">
+<div class="m-unstick" style="display: flex; flex-direction: column; gap: 24px; position: sticky; top: 40px">
 <div style="font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A24A">Комплектация</div>
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 88px; line-height: 0.95">Что в&nbsp;коробке</h2>
+<h2 class="m-h2" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 88px; line-height: 0.95">Что в&nbsp;коробке</h2>
 <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #B9AFA3">ЧГГ собирается под&nbsp;ваш повод, как настольная игра: базовый набор плюс дополнения. Выберите, что положить в&nbsp;коробку. Остальное Академик подберёт сам.</p>
 </div>
-<div style="background: #F2EADD; color: #1A1614; padding: 56px 60px; border: 3px solid #1A1614; box-shadow: 14px 14px 0 #AE252F; display: flex; flex-direction: column; gap: 30px">
+<div class="m-box" style="background: #F2EADD; color: #1A1614; padding: 56px 60px; border: 3px solid #1A1614; box-shadow: 14px 14px 0 #AE252F; display: flex; flex-direction: column; gap: 30px">
 <div style="text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; color: #AE252F">— В&nbsp;комплекте —</div>
 <sc-for list="{{menu}}" as="m" hint-placeholder-count="6">
 <div style="display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; align-items: baseline; gap: 12px"><span style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 30px; white-space: nowrap">{{m.t}}</span><span style="flex-grow: 1"></span><span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #AE252F; border: 1.5px solid #AE252F; border-radius: 999px; padding: 4px 12px; white-space: nowrap">{{m.p}}</span></div>
+<div class="m-menu-row" style="display: flex; align-items: baseline; gap: 12px"><span class="m-menu-t" style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 30px; white-space: nowrap">{{m.t}}</span><span style="flex-grow: 1"></span><span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #AE252F; border: 1.5px solid #AE252F; border-radius: 999px; padding: 4px 12px; white-space: nowrap">{{m.p}}</span></div>
 <div style="font-size: 16px; color: #5A5048; font-style: italic">{{m.d}}</div>
 </div>
 </sc-for>
-<div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1A1614; padding-top: 22px; font-size: 15px; color: #5A5048"><span>Игроков: [N] · Партия: [длительность] · Правила объясняет Господин Академик</span><img src="./assets/cab48f5ed3c30f3c101a7974c284d046.svg" alt="" style="width: 56px; height: 56px"></div>
+<div class="m-box-foot" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1A1614; padding-top: 22px; font-size: 15px; color: #5A5048"><span>Игроков: [N] · Партия: [длительность] · Правила объясняет Господин Академик</span><img src="./assets/cab48f5ed3c30f3c101a7974c284d046.svg" alt="" style="width: 56px; height: 56px"></div>
 </div>
 </section>
 
-<section id="formaty" style="background: #0B0908; padding: 120px 64px; display: flex; flex-direction: column; gap: 56px; border-top: 1px solid rgba(201,162,74,0.25)">
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 88px; line-height: 0.95">Куда приедет <span style="font-style: italic; color: #E8C774">стол</span></h2>
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px">
+<section id="formaty" class="m-sec" style="background: #0B0908; padding: 120px 64px; display: flex; flex-direction: column; gap: 56px; border-top: 1px solid rgba(201,162,74,0.25)">
+<h2 class="m-h2" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 88px; line-height: 0.95">Куда приедет <span style="font-style: italic; color: #E8C774">стол</span></h2>
+<div class="m-cols1" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px">
 <sc-for list="{{tickets}}" as="t" hint-placeholder-count="3">
 <div style="position: relative; background: #F2EADD; color: #1A1614; padding: 36px 34px 30px; display: flex; flex-direction: column; gap: 16px; -webkit-mask-image: radial-gradient(circle 14px at 0 62%, transparent 13px, #000 14px), radial-gradient(circle 14px at 100% 62%, transparent 13px, #000 14px); -webkit-mask-composite: source-in; mask-image: radial-gradient(circle 14px at 0 62%, transparent 13px, #000 14px), radial-gradient(circle 14px at 100% 62%, transparent 13px, #000 14px); mask-composite: intersect">
 <div style="display: flex; justify-content: space-between; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: #AE252F"><span>Приглашение</span><span>{{t.n}}</span></div>
-<div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 44px; line-height: 1">{{t.title}}</div>
-<div style="font-size: 17px; line-height: 1.6; color: #3A332E; min-height: 110px">{{t.text}}</div>
+<div class="m-ticket-t" style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 44px; line-height: 1">{{t.title}}</div>
+<div class="m-auto-h" style="font-size: 17px; line-height: 1.6; color: #3A332E; min-height: 110px">{{t.text}}</div>
 <div style="border-top: 2px dashed #8A8076; padding-top: 16px; display: flex; justify-content: space-between; font-size: 14px; color: #5A5048"><span>{{t.meta}}</span><span style="font-weight: 700; color: #AE252F">{{t.badge}}</span></div>
 </div>
 </sc-for>
 </div>
 </section>
 
-<section style="background: #AE252F; padding: 120px 64px; display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 80px; align-items: center">
+<section class="m-sec m-stack" style="background: #AE252F; padding: 120px 64px; display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 80px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 24px">
 <div style="font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #F2EADD">Сезон ЧГГ-Live</div>
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 92px; line-height: 0.95">Из&nbsp;вашего зала&nbsp;— <span style="font-style: italic">в&nbsp;настоящий выпуск</span></h2>
+<h2 class="m-h2" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 92px; line-height: 0.95">Из&nbsp;вашего зала&nbsp;— <span style="font-style: italic">в&nbsp;настоящий выпуск</span></h2>
 <p style="margin: 0; font-size: 20px; line-height: 1.6; max-width: 720px">Команды, которые лучше всех сыграют сезон, приедут в&nbsp;студию и&nbsp;сыграют в&nbsp;специальном выпуске шоу. С&nbsp;камерами, звёздами и&nbsp;голосом сверху. [правила рейтинга и&nbsp;сроки]</p>
 </div>
 <div style="display: flex; flex-direction: column; align-items: center; gap: 16px">
-<img src="./assets/21cf65338f30319c894e0b6dfd124dac.jpg" alt="Статуэтка Волка ЧГГ" style="width: 300px; height: 401px; object-fit: cover; box-shadow: 0 0 0 1px #C9A24A, 0 0 0 8px #AE252F, 0 0 0 9px #E8C774">
+<img src="./assets/21cf65338f30319c894e0b6dfd124dac.jpg" alt="Статуэтка Волка ЧГГ" class="m-wolf" style="width: 300px; height: 401px; object-fit: cover; box-shadow: 0 0 0 1px #C9A24A, 0 0 0 8px #AE252F, 0 0 0 9px #E8C774">
 <div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; text-align: center">А&nbsp;победителям вечера&nbsp;— Волк.<br>Нелепый, в&nbsp;бабочке, навсегда.</div>
 </div>
 </section>
 
-<section id="rsvp" style="background: #0E0B0A; padding: 130px 64px 120px; display: flex; justify-content: center">
-<div style="width: 1000px; display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: 64px; align-items: center">
+<section id="rsvp" class="m-sec" style="background: #0E0B0A; padding: 130px 64px 120px; display: flex; justify-content: center">
+<div class="m-rsvp" style="width: 1000px; display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: 64px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 22px">
 <div style="font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A24A">Новая партия</div>
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 84px; line-height: 0.95">Стол готов. <span style="font-style: italic; color: #E8C774">Не&nbsp;хватает&nbsp;игроков.</span></h2>
+<h2 class="m-h2 m-h2-nowrap" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 84px; line-height: 0.95">Стол готов. <span style="font-style: italic; color: #E8C774">Не&nbsp;хватает&nbsp;игроков.</span></h2>
 <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #B9AFA3">Расскажите про повод и&nbsp;площадку. Мы&nbsp;предложим состав звёзд, комплектацию вечера и&nbsp;пару вопросов лично про&nbsp;вас.</p>
 <div style="font-size: 16px; color: #D8CFC2">Или напишите: [телефон · Telegram · почта]</div>
 </div>
-<form style="background: #F2EADD; color: #1A1614; padding: 38px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 0 0 1px #C9A24A, 0 0 0 8px #0E0B0A, 0 0 0 9px #C9A24A">
+<form class="m-form" style="background: #F2EADD; color: #1A1614; padding: 38px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 0 0 1px #C9A24A, 0 0 0 8px #0E0B0A, 0 0 0 9px #C9A24A">
 <div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; text-align: center; color: #AE252F">Ответ на&nbsp;приглашение</div>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #5A5048">Имя<input style="height: 48px; border: 0; border-bottom: 1px solid #1A1614; background: transparent; font-family: 'Manrope', sans-serif; font-size: 17px"></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #5A5048">Телефон или Telegram<input style="height: 48px; border: 0; border-bottom: 1px solid #1A1614; background: transparent; font-family: 'Manrope', sans-serif; font-size: 17px"></label>
@@ -186,13 +234,14 @@ a{color:#F2EADD}a:hover{color:#FFFFFF}
 </div>
 </section>
 
-<footer style="height: 110px; box-sizing: border-box; padding: 0 64px; border-top: 1px solid rgba(201,162,74,0.25); display: flex; align-items: center; justify-content: space-between; font-size: 14px; color: #B9AFA3">
+<footer class="m-footer" style="height: 110px; box-sizing: border-box; padding: 0 64px; border-top: 1px solid rgba(201,162,74,0.25); display: flex; align-items: center; justify-content: space-between; font-size: 14px; color: #B9AFA3">
 <span>ЧГГ-Live&nbsp;— живой формат шоу из&nbsp;«Ошуительного Хоу»</span>
 <span>[соцсети] · [сайт]</span>
 </footer>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":8400}}'>
+const MOBILE_MQ = '(max-width: 1023px)';
 class Component extends DCLogic {
 constructor(props) {
 super(props);
@@ -212,6 +261,10 @@ window.removeEventListener('resize', this.measure);
 }
 measure() {
 const vh = window.innerHeight || 900;
+if (window.matchMedia(MOBILE_MQ).matches) {
+if (!this.state.isStatic) this.setState({ isStatic: true, p: 1 });
+return;
+}
 const scrollable = document.documentElement.scrollHeight > vh + 60;
 if (this.state.isStatic && scrollable) {
 this.setState({ isStatic: false, vh: Math.max(640, vh), p: 0 }, this.onScroll);
@@ -252,7 +305,7 @@ cableH: Math.round(40 + v * 60), lampTop: Math.round(40 + v * 60), beamTop: Math
 lampGlow: r2(0.1 + light * 0.45), light: r2(light),
 introO: r2(s ? 0 : seg(0.03, 0.08) * (1 - seg(0.1, 0.14))),
 tableBr: r2(0.35 + light * 0.65 - dim * 0.4),
-personBottom: 110, pH, gW: Math.round(pH * 1.118), gML: -60 - Math.round(pH * 1.118), aW: Math.round(pH * 0.884),
+personBottom: 110, pH, gW: Math.round(pH * 1.118), gML: -60 - Math.round(pH * 1.118), aW: Math.round(pH * 0.926),
 gO: r2(g), gY: Math.round((1 - g) * 50), gB: r2((1 - g) * 10), gBr: r2(1 - dim),
 aO: r2(a), aY: Math.round((1 - a) * 50), aB: r2((1 - a) * 10), aBr: r2(1 - dim),
 gqO: r2(gq), gqY: Math.round((1 - gq) * 16),
