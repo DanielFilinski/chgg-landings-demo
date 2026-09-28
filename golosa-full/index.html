@@ -3,17 +3,315 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>ЧГГ-Live — «Три голоса» — полная версия (макет)</title>
-<style>
-body{margin:0;background:#2a2624;font-family:system-ui,sans-serif;color:#F2EADD}
-.bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;background:rgba(14,11,10,.92);backdrop-filter:blur(6px);font-size:14px}
-.bar a{color:#C9A24A;text-decoration:none}
-img{display:block;width:100%;max-width:1080px;height:auto;margin:0 auto}
-</style>
+<title>ЧГГ-Live — лендинг «Три голоса»</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
 </head>
 <body>
-<div class="bar"><a href="../">← Все варианты</a><span>«Три голоса» — полная версия (макет)</span><a href="tri-golosa.pdf" target="_blank" rel="noopener">PDF</a></div>
-<img src="page.jpg" alt="«Три голоса» — полная версия (макет)">
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F2EADD;font-family:'Manrope',system-ui,sans-serif;color:#1A1614}
+a{color:inherit}
+.v-p{margin:0 0 16px;font-size:17px;line-height:1.6}
+.v-list{margin:0 0 18px;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.v-list li{position:relative;padding-left:26px;font-size:17px;line-height:1.5}
+.v-list li::before{content:"";position:absolute;left:0;top:12px;width:14px;height:2px;background:currentColor;opacity:.55}
+.v-cols{column-count:2;column-gap:48px}
+.v-cols > *{break-inside:avoid}
+/* Артборд 1440 px: на широком экране фоны секций тянутся, содержимое — по центру */
+.m-pad{padding-left:max(80px,calc(50% - 640px))!important;padding-right:max(80px,calc(50% - 640px))!important}
+.m-prize-copy{margin-left:max(0px,calc(50% - 720px))}
+/* Мобильная раскладка. Стили макета инлайновые, поэтому переопределения через !important */
+:root{--gut:clamp(20px,5vw,48px)}
+@media (max-width:1023px){
+.m-root{min-width:0!important}
+.m-hide{display:none!important}
+.m-pad{padding-left:var(--gut)!important;padding-right:var(--gut)!important}
+.m-sec{padding-top:64px!important;padding-bottom:64px!important;gap:32px!important}
+.m-1col{grid-template-columns:minmax(0,1fr)!important;gap:36px!important}
+.m-h2{font-size:clamp(36px,9.5vw,64px)!important}
+.v-cols{column-count:1}
+.m-hero{height:auto!important;padding-bottom:48px!important}
+.m-hero-head{height:76px!important}
+.m-hero-head nav{display:none!important}
+.m-hero-logo{height:60px!important}
+.m-hero-head>a{height:40px!important;padding:0 16px!important;font-size:14px!important}
+.m-hero h1{font-size:clamp(48px,13vw,104px)!important}
+.m-hero p{font-size:17px!important}
+.m-hero-grid{padding-top:32px}
+.m-btns{flex-wrap:wrap;gap:10px!important}
+.m-btns>a{height:54px!important;padding:0 24px!important}
+.m-trio{gap:10px!important}
+.m-trio>a>div:first-child{height:46vw!important;max-height:440px}
+.m-trio>a:nth-child(2){margin-bottom:20px!important}
+.m-trio>a>div:last-child>div:last-child{font-size:17px!important}
+.m-photo{height:min(110vw,560px)!important}
+.m-first{order:-1}
+.m-garik-text{order:-1;padding-bottom:24px!important}
+.m-garik-quote>div:first-child{display:none}
+.m-garik-img{width:min(100%,560px)!important;margin:24px auto 0!important}
+.m-akad-photo{box-shadow:12px 12px 0 #E2D6C3!important}
+.m-head{flex-direction:column;align-items:flex-start!important;gap:16px!important}
+.m-grid4{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+.m-grid4>div{min-height:0!important;padding:24px!important}
+.m-rule{grid-template-columns:56px minmax(0,1fr)!important;gap:14px!important}
+.m-card{padding:28px 22px!important}
+.m-prize{height:auto!important}
+.m-prize-img{position:static!important;display:block;width:100%!important;height:62vw!important;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent)}
+.m-prize-copy{height:auto!important;margin-left:0;padding:8px var(--gut) 64px!important;max-width:none!important}
+.m-prize-copy h2{font-size:clamp(40px,11vw,84px)!important}
+.m-card-t{font-size:32px!important}
+.m-apply{padding:28px 22px!important;grid-template-columns:minmax(0,1fr)!important;gap:28px!important}
+.m-apply-sec{padding-top:40px!important;padding-bottom:40px!important}
+.m-form{padding:22px!important}
+.m-foot{flex-direction:column;align-items:flex-start!important;gap:14px}
+}
+@media (max-width:600px){.m-grid4{grid-template-columns:minmax(0,1fr)!important}}
+</style>
+</helmet>
+<div class="m-root" style="width: 100%; min-width: 1200px; background: #F2EADD; color: #1A1614; font-family: 'Manrope', sans-serif; display: flex; flex-direction: column">
+
+<!-- ============ 1. ОБЛОЖКА ============ -->
+<section class="m-hero m-pad" style="position: relative; height: 900px; flex-shrink: 0; box-sizing: border-box; padding: 0 80px; display: flex; flex-direction: column; background: #F2EADD; overflow: hidden">
+<header class="m-hero-head" style="height: 96px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(26,22,20,0.15)">
+<div style="display: flex; align-items: center; gap: 14px">
+<img src="./assets/logo-dark.png" alt="ЧГГ Live" class="m-hero-logo" style="height: 86px; width: auto; display: block">
+</div>
+<nav aria-label="Разделы" style="display: flex; gap: 34px; font-size: 15px; font-weight: 500">
+<a href="#vedushchiy" style="text-decoration: none">Ведущий</a>
+<a href="#akademik" style="text-decoration: none">Академик</a>
+<a href="#garik" style="text-decoration: none">Гарик</a>
+<a href="#pravila" style="text-decoration: none">Правила</a>
+<a href="#formaty" style="text-decoration: none">Форматы</a>
+</nav>
+<a href="#zayavka" style="height: 46px; padding: 0 24px; display: flex; align-items: center; border-radius: 999px; background: #1A1614; color: #F2EADD; text-decoration: none; font-size: 15px; font-weight: 600">Оставить заявку</a>
+</header>
+
+<div class="m-hero-grid m-1col" style="flex-grow: 1; display: grid; grid-template-columns: minmax(0, 1fr) 640px; gap: 56px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 28px">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.16em; color: #AE252F">ЖИВОЙ ФОРМАТ ШОУ ИЗ «ОШУИТЕЛЬНОГО ХОУ»</div>
+<h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 104px; line-height: 0.94; letter-spacing: -0.02em">Шесть лет вы&nbsp;смотрели ЧГГ. <em style="color: #AE252F; font-weight: 500">Теперь в&nbsp;него можно сыграть.</em></h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #5A5048; max-width: 600px">Для корпоративов, праздников и&nbsp;площадок. А&nbsp;о&nbsp;том, что это такое, лучше расскажут те, кто делает шоу. Три голоса&nbsp;— ниже.</p>
+<div class="m-btns" style="display: flex; gap: 14px; align-items: center">
+<a href="#vedushchiy" style="height: 60px; padding: 0 30px; display: flex; align-items: center; gap: 12px; border-radius: 999px; background: #AE252F; color: #FFFFFF; text-decoration: none; font-size: 17px; font-weight: 600">Послушать голоса <span aria-hidden="true">↓</span></a>
+<a href="#zayavka" style="height: 60px; padding: 0 30px; display: flex; align-items: center; border-radius: 999px; border: 1.5px solid #1A1614; text-decoration: none; font-size: 17px; font-weight: 600">Заказать вечер</a>
+</div>
+</div>
+
+<div class="m-trio" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: end">
+<a href="#vedushchiy" style="display: flex; flex-direction: column; gap: 14px; text-decoration: none">
+<div style="height: 400px; border-radius: 200px 200px 14px 14px; overflow: hidden; background: #0E0B0A">
+<img src="./assets/78eff4afed32d136027f44d9ee45d666.jpg" alt="Господин Ведущий — силуэт без лица" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block">
+</div>
+<div><div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: #AE252F">ГОЛОС 1</div><div style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 24px; line-height: 1.1">Господин Ведущий</div></div>
+</a>
+<a href="#akademik" style="display: flex; flex-direction: column; gap: 14px; text-decoration: none; margin-bottom: 40px">
+<div style="height: 440px; border-radius: 200px 200px 14px 14px; overflow: hidden; background: #0E0B0A"><img src="./assets/d79b7df398bcfadeac2a97a6570de949.jpg" alt="Господин Академик" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block"></div>
+<div><div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: #AE252F">ГОЛОС 2</div><div style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 24px; line-height: 1.1">Господин Академик</div></div>
+</a>
+<a href="#garik" style="display: flex; flex-direction: column; gap: 14px; text-decoration: none">
+<div style="height: 400px; border-radius: 200px 200px 14px 14px; overflow: hidden; background: #AE252F; display: flex; align-items: flex-end"><img src="./assets/02d2503389c68f07461140d01ca33696.png" alt="Гарик Харламов" style="width: 100%; height: 88%; object-fit: cover; object-position: 50% 0%; display: block"></div>
+<div><div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: #AE252F">ГОЛОС 3</div><div style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 24px; line-height: 1.1">Гарик Харламов</div></div>
+</a>
+</div>
+</div>
+</section>
+
+<!-- ============ 2. ГОСПОДИН ВЕДУЩИЙ ============ -->
+<section id="vedushchiy" class="m-pad m-sec m-1col" style="position: relative; flex-shrink: 0; box-sizing: border-box; padding: 90px 80px 96px; background: #0E0B0A; color: #F2EADD; display: grid; grid-template-columns: 460px minmax(0, 1fr); gap: 80px; overflow: hidden">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<div class="m-photo" style="height: 620px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(201,162,74,0.35); box-shadow: 0 40px 80px rgba(0,0,0,0.5)">
+<img src="./assets/78eff4afed32d136027f44d9ee45d666.jpg" alt="Господин Ведущий — силуэт без лица" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; display: block">
+</div>
+<div style="display: flex; align-items: center; gap: 14px">
+<div aria-hidden="true" style="display: flex; align-items: center; gap: 4px; height: 28px"><span style="width: 4px; height: 10px; background: #C9A24A; border-radius: 2px"></span><span style="width: 4px; height: 22px; background: #C9A24A; border-radius: 2px"></span><span style="width: 4px; height: 16px; background: #C9A24A; border-radius: 2px"></span><span style="width: 4px; height: 28px; background: #C9A24A; border-radius: 2px"></span><span style="width: 4px; height: 12px; background: #C9A24A; border-radius: 2px"></span><span style="width: 4px; height: 20px; background: #C9A24A; border-radius: 2px"></span><span style="width: 4px; height: 8px; background: #C9A24A; border-radius: 2px"></span></div>
+<div style="font-size: 15px; color: rgba(242,234,221,0.7); line-height: 1.4">Его никто не&nbsp;видел.<br>Его голос знают все.</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.16em; color: #C9A24A; margin-bottom: 22px">ГОЛОС 1 ИЗ 3 · ИЗ-ЗА ШИРМЫ</div>
+<h2 class="m-h2" style="margin: 0 0 30px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 60px; line-height: 1.02; letter-spacing: -0.01em">«Приветствую вас, уважаемые знатоки. <em style="color: #E8C774; font-weight: 500">Да, именно знатоки».</em></h2>
+<div class="v-cols" style="color: rgba(242,234,221,0.88)">
+<p class="v-p">Ведь теперь каждый из&nbsp;вас может стать полноправным участником клуба ЧГГ. На&nbsp;протяжении шести лет наше шоу выходило онлайн, но&nbsp;настал момент сделать новый шаг. Я&nbsp;долго думал, господин Академик делал расчёты, а&nbsp;Гарик Харламов просто кивнул&nbsp;— и&nbsp;всё, мы решили: даёшь ЧГГ-Live!</p>
+<p class="v-p">ЧГГ&nbsp;— это развлекательно-интеллектуальное шоу, где у&nbsp;вас есть возможность вместе с&nbsp;друзьями, коллегами и&nbsp;близкими стать одной командой, чтобы сообща отвечать на&nbsp;самые интересные, смешные и&nbsp;разнообразные вопросы.</p>
+<p class="v-p">Моя главная задача&nbsp;— чтобы вам было хорошо. В&nbsp;этом и&nbsp;заключается суть ЧГГ. Не&nbsp;просто отвечать на&nbsp;вопросы или проклинать свою команду, когда никто не&nbsp;может ответить правильно, как это часто бывает в&nbsp;других викторинах и&nbsp;квизах. Нет, здесь мне важно, чтобы каждый из&nbsp;вас, уважаемые знатоки, чувствовал себя хорошо. Поэтому в&nbsp;ЧГГ вас ждут:</p>
+<ul class="v-list" style="color: #F2EADD">
+<li>Не&nbsp;душные, а&nbsp;интересные и&nbsp;забавные вопросы, за&nbsp;которые лично отвечает наш Академик.</li>
+<li>Шутки, прожарка и&nbsp;фирменный стиль проведения от&nbsp;меня, то&nbsp;есть от&nbsp;Господина Ведущего.</li>
+<li>Выступления и&nbsp;музыкальные номера от&nbsp;лучших комиков.</li>
+<li>Возможность сыграть за&nbsp;одним столом с&nbsp;популярными и&nbsp;известными людьми. (Получается, сыграть с&nbsp;Домиником Джокером не&nbsp;получится.)</li>
+</ul>
+<p class="v-p">Всё это ждёт вас на&nbsp;играх ЧГГ, но&nbsp;уже в&nbsp;живом формате. И&nbsp;кто знает, что ещё будет? Глядишь, сделаем специальную игру, где прямо к&nbsp;нам в&nbsp;студию позовём лучших игроков сезона, чтобы принять участие в&nbsp;съёмках специального выпуска? Всё возможно в&nbsp;ЧГГ!</p>
+<p class="v-p">Правила ЧГГ очень простые, они будут понятны всем, даже Джигану. (И&nbsp;да, он тоже был у&nbsp;нас. А&nbsp;если уж он смог, значит, вы точно всё поймёте.) <a href="#pravila" style="color: #E8C774; font-weight: 600">Правила&nbsp;— ниже&nbsp;↓</a></p>
+</div>
+<div style="margin-top: 16px; padding-top: 22px; border-top: 1px solid rgba(201,162,74,0.35); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 30px; color: #E8C774">— Господин Ведущий</div>
+</div>
+</section>
+
+<!-- ============ 3. ГОСПОДИН АКАДЕМИК ============ -->
+<section id="garik" class="m-pad m-1col" style="position: relative; flex-shrink: 0; box-sizing: border-box; padding: 90px 80px 0; background: #AE252F; color: #FFFFFF; display: grid; grid-template-columns: 460px minmax(0, 1fr); gap: 80px; overflow: hidden">
+<div style="display: flex; flex-direction: column; justify-content: space-between">
+<div class="m-garik-quote" style="display: flex; flex-direction: column; gap: 6px">
+<div aria-hidden="true" style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 260px; line-height: 0.7; color: #F2EADD; opacity: 0.22">«</div>
+<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 34px; line-height: 1.15; color: #F2EADD">Написал сам.<br>Больше двух предложений.</div>
+</div>
+<img src="./assets/02d2503389c68f07461140d01ca33696.png" alt="Гарик Харламов" class="m-garik-img" style="width: 620px; margin-left: -90px; display: block">
+</div>
+<div class="m-garik-text" style="display: flex; flex-direction: column; padding-bottom: 90px">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.16em; color: #F2EADD; opacity: 0.8; margin-bottom: 22px">ГОЛОС 3 ИЗ 3 · ЛИЧНО</div>
+<h2 class="m-h2" style="margin: 0 0 30px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 60px; line-height: 1.02; letter-spacing: -0.01em">«Доброго времени суток. <em style="font-weight: 500; color: #F2EADD">В&nbsp;моём случае это любое время суток, кроме утра».</em></h2>
+<div class="v-cols" style="color: rgba(255,255,255,0.92)">
+<p class="v-p">Да, это Гарик Харламов. Вы, наверное, думаете, что это какой-то фейк, что настоящему Гарику было&nbsp;бы лень писать больше двух предложений. Но&nbsp;ради такого повода я&nbsp;всё-таки решил написать лично!</p>
+<p class="v-p">Многие знают, что я&nbsp;люблю игры. И&nbsp;вот, спустя шесть лет, моя любимая игра&nbsp;— ЧГГ&nbsp;— выходит в&nbsp;лайв-формат! Шесть лет вы вместе со&nbsp;мной смеялись над шутками Господина Ведущего, ждали новых вопросов, ругали комиков за&nbsp;тупые ответы. Теперь вы можете стать частью этой легендарной истории, но&nbsp;уже не&nbsp;только как зрители. Да, вы можете стать прям её участниками.</p>
+<p class="v-p">Что такое ЧГГ? Это такая штучка, благодаря которой в&nbsp;вашей компании или на&nbsp;вашем празднике может стать очень весело. Командная развлекательно-интеллектуальная игра, где вы в&nbsp;команде с&nbsp;друзьями, коллегами или близкими (да что там близкими, можете даже тёщу с&nbsp;собой в&nbsp;команду взять, если оно вам надо) не&nbsp;просто душитесь вопросами и&nbsp;не&nbsp;ломаете голову «Боже, как на&nbsp;это ответить?!», а&nbsp;весело, с&nbsp;юмором и&nbsp;сообща приходите к&nbsp;правильным ответам. Правила максимально простые&nbsp;— <a href="#pravila" style="color: #FFFFFF; font-weight: 700">они ниже&nbsp;↓</a></p>
+<p class="v-p">Но&nbsp;и&nbsp;это ещё не&nbsp;всё! Помимо вопросов и&nbsp;игры вас ждёт много чего ещё:</p>
+<ul class="v-list" style="color: #FFFFFF">
+<li>фирменные шутки Господина Ведущего;</li>
+<li>филигранные вопросы от&nbsp;нашего Академика;</li>
+<li>возможность сыграть за&nbsp;одним столом с&nbsp;известными комиками. Кто знает, может, и&nbsp;со&nbsp;мной… если я&nbsp;не&nbsp;просплю;</li>
+<li>юмористические и&nbsp;музыкальные номера от&nbsp;лучших комиков.</li>
+</ul>
+<p class="v-p">Всё это и&nbsp;многое другое вы теперь сможете прожить вместе с&nbsp;нами. А&nbsp;там, глядишь, сделаем специальный выпуск с&nbsp;лучшими игроками по&nbsp;итогам сезона. Звучит круто? Как по&nbsp;мне&nbsp;— да.</p>
+</div>
+<div style="margin-top: 16px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.3); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 30px">— Гарик Харламов</div>
+</div>
+</section><section id="akademik" class="m-pad m-sec m-1col" style="position: relative; flex-shrink: 0; box-sizing: border-box; padding: 90px 80px 96px; background: #F2EADD; color: #1A1614; display: grid; grid-template-columns: minmax(0, 1fr) 460px; gap: 80px">
+<div style="display: flex; flex-direction: column">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.16em; color: #AE252F; margin-bottom: 22px">ГОЛОС 2 ИЗ 3 · ТОТ, КТО ПИШЕТ ВОПРОСЫ</div>
+<h2 class="m-h2" style="margin: 0 0 30px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 60px; line-height: 1.02; letter-spacing: -0.01em">«Привет, друзья. Это господин Академик. <em style="color: #AE252F; font-weight: 500">И&nbsp;сразу вопрос».</em></h2>
+<div class="v-cols" style="color: #3A332E">
+<p class="v-p">Что будет, если шоу, которое Гарик Харламов, Господин Ведущий и&nbsp;я создаём и&nbsp;развиваем шесть лет, которое собирает у&nbsp;экранов множество знатоков по&nbsp;всему миру, которое не&nbsp;только прокачивает интеллект и&nbsp;увлекает командной игрой, но&nbsp;и&nbsp;заметно так веселит&nbsp;— так вот, что будет, если участие в&nbsp;этом шоу станет доступно каждому?</p>
+<p style="margin: 0 0 22px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 30px; line-height: 1.2; color: #1A1614">Досрочный ответ: будет ЧГГ-Live!</p>
+<p class="v-p">Что такое ЧГГ? Это шоу, которое сделает из&nbsp;вас и&nbsp;ваших близких настоящую команду, которая вместе будет приходить к&nbsp;правильным ответам на&nbsp;самые разные вопросы. А&nbsp;между вопросами&nbsp;— весело проводить время, смеяться над шутками Господина Ведущего, получать визуальный оргазм от&nbsp;музыкальных номеров и&nbsp;выступлений лучших комиков. И, конечно же, персональные вопросы от&nbsp;меня обеспечены!</p>
+<p class="v-p">Для меня важно, чтобы во&nbsp;время игры ваши глаза не&nbsp;были обречёнными, а&nbsp;лица кислыми, как будто вы смотрите телеканал «Культура». ЧГГ покажет вам, что культурно провести время можно ещё и&nbsp;весело.</p>
+<p class="v-p">И, конечно, для меня важна персонализация. Ну потому что я&nbsp;Академик, а&nbsp;это слово звучит умно. И&nbsp;ещё потому, что мы готовы сделать для вас ЧГГ таким, каким выберете вы:</p>
+<ul class="v-list" style="color: #1A1614">
+<li>Персональные шутки от&nbsp;Господина Ведущего? Пожалуйста!</li>
+<li>Личный вопрос от&nbsp;меня? Пожалуйста!</li>
+<li>Хотите, чтобы с&nbsp;вами за&nbsp;одним столом играл известный комик? Вообще легко!</li>
+</ul>
+<p class="v-p">Я&nbsp;лично ручаюсь за&nbsp;то, что это будет ваш лучший опыт участия в&nbsp;интеллектуально-развлекательных шоу. Всё, что для этого нужно,&nbsp;— <a href="#zayavka" style="color: #AE252F; font-weight: 600">просто связаться с&nbsp;нами</a>. Ну и&nbsp;ещё можно <a href="#pravila" style="color: #AE252F; font-weight: 600">прочитать правила</a>, чтобы точно знать, что вас ждёт.</p>
+</div>
+<div style="margin-top: 16px; padding-top: 22px; border-top: 1px solid rgba(26,22,20,0.2); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 30px; color: #AE252F">— Господин Академик</div>
+</div>
+
+<div class="m-first" style="display: flex; flex-direction: column; gap: 22px">
+<div class="m-photo m-akad-photo" style="position: relative; height: 620px; border-radius: 16px; overflow: hidden; background: #0E0B0A; box-shadow: 24px 24px 0 #E2D6C3">
+<img src="./assets/d79b7df398bcfadeac2a97a6570de949.jpg" alt="Господин Академик" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; display: block">
+<div style="position: absolute; left: 22px; top: 22px; padding: 8px 14px; border-radius: 999px; background: #F2EADD; font-size: 13px; font-weight: 600; letter-spacing: 0.08em">ВОПРОС № 1</div>
+</div>
+<div style="font-size: 15px; color: #5A5048; line-height: 1.5">Шесть лет пишет вопросы для&nbsp;ЧГГ. Для вашего вечера напишет тоже.</div>
+</div>
+</section>
+
+<!-- ============ 4. ГАРИК ХАРЛАМОВ ============ -->
+
+
+<!-- ============ 5. ЧТО ВАС ЖДЁТ ============ -->
+<section class="m-pad m-sec" style="flex-shrink: 0; box-sizing: border-box; padding: 96px 80px 80px; background: #F2EADD; display: flex; flex-direction: column; gap: 44px">
+<div class="m-head" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<h2 class="m-h2" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 72px; line-height: 1; letter-spacing: -0.01em">Три голоса сошлись <em style="color: #AE252F; font-weight: 500">в&nbsp;одном</em></h2>
+<p style="margin: 0; max-width: 380px; font-size: 17px; line-height: 1.55; color: #5A5048">Коротко о&nbsp;том, что все трое пообещали вам выше.</p>
+</div>
+<div class="m-grid4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px">
+<div style="background: #FFFFFF; border-radius: 16px; padding: 30px; display: flex; flex-direction: column; gap: 14px; min-height: 230px"><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 44px; color: #AE252F; line-height: 1">01</div><div style="font-weight: 700; font-size: 21px; line-height: 1.25">Вопросы от&nbsp;Академика</div><div style="font-size: 16px; line-height: 1.55; color: #5A5048">Не&nbsp;душные, а&nbsp;интересные и&nbsp;забавные. Плюс личный вопрос про вашу компанию.</div></div>
+<div style="background: #FFFFFF; border-radius: 16px; padding: 30px; display: flex; flex-direction: column; gap: 14px; min-height: 230px"><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 44px; color: #AE252F; line-height: 1">02</div><div style="font-weight: 700; font-size: 21px; line-height: 1.25">Голос из-за&nbsp;ширмы</div><div style="font-size: 16px; line-height: 1.55; color: #5A5048">Шутки, прожарка и&nbsp;фирменный стиль Господина Ведущего. Персональные шутки&nbsp;— по&nbsp;запросу.</div></div>
+<div style="background: #FFFFFF; border-radius: 16px; padding: 30px; display: flex; flex-direction: column; gap: 14px; min-height: 230px"><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 44px; color: #AE252F; line-height: 1">03</div><div style="font-weight: 700; font-size: 21px; line-height: 1.25">Лучшие комики</div><div style="font-size: 16px; line-height: 1.55; color: #5A5048">Юмористические и&nbsp;музыкальные номера между турами.</div></div>
+<div style="background: #1A1614; color: #F2EADD; border-radius: 16px; padding: 30px; display: flex; flex-direction: column; gap: 14px; min-height: 230px"><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 44px; color: #E8C774; line-height: 1">04</div><div style="font-weight: 700; font-size: 21px; line-height: 1.25">Звезда за&nbsp;вашим столом</div><div style="font-size: 16px; line-height: 1.55; color: rgba(242,234,221,0.75)">Известный комик в&nbsp;вашей команде. А&nbsp;может, и&nbsp;Гарик&nbsp;— если не&nbsp;проспит.</div></div>
+</div>
+</section>
+
+<!-- ============ 6. КАК ПРОХОДИТ ИГРА + ПРАВИЛА ============ -->
+<section id="pravila" class="m-pad m-sec m-1col" style="flex-shrink: 0; box-sizing: border-box; padding: 90px 80px; background: #E9DFCF; display: grid; grid-template-columns: minmax(0, 1fr) 520px; gap: 80px">
+<div style="display: flex; flex-direction: column; gap: 40px">
+<div>
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.16em; color: #AE252F; margin-bottom: 16px">КАК ПРОХОДИТ ИГРА</div>
+<h2 class="m-h2" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 64px; line-height: 1; letter-spacing: -0.01em">Понятно даже Джигану</h2>
+</div>
+<div style="display: flex; flex-direction: column">
+<div class="m-rule" style="display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 24px; padding: 26px 0; border-top: 1px solid rgba(26,22,20,0.2)"><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 40px; color: #AE252F; line-height: 1">I</div><div><div style="font-weight: 700; font-size: 22px; margin-bottom: 6px">Квиз: 3–6 туров</div><div style="font-size: 17px; line-height: 1.55; color: #5A5048">Вопросы от&nbsp;авторов шоу, у&nbsp;каждого тура своя механика. Отвечаете командой, сообща.</div></div></div>
+<div class="m-rule" style="display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 24px; padding: 26px 0; border-top: 1px solid rgba(26,22,20,0.2)"><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 40px; color: #AE252F; line-height: 1">II</div><div><div style="font-weight: 700; font-size: 22px; margin-bottom: 6px">Паузы с&nbsp;комиками</div><div style="font-size: 17px; line-height: 1.55; color: #5A5048">Стендап и&nbsp;музыкальные номера между турами.</div></div></div>
+<div class="m-rule" style="display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 24px; padding: 26px 0; border-top: 1px solid rgba(26,22,20,0.2); border-bottom: 1px solid rgba(26,22,20,0.2)"><div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 40px; color: #AE252F; line-height: 1">III</div><div><div style="font-weight: 700; font-size: 22px; margin-bottom: 6px">Финал как в&nbsp;шоу</div><div style="font-size: 17px; line-height: 1.55; color: #5A5048">Игра до&nbsp;шести очков с&nbsp;Господином Ведущим. Интерактив с&nbsp;комиками или знатоками.</div></div></div>
+</div>
+</div>
+<div class="m-card" style="background: #FFFFFF; border-radius: 20px; padding: 44px; display: flex; flex-direction: column; gap: 20px; align-self: start">
+<div style="display: flex; justify-content: space-between; align-items: center"><div style="font-size: 14px; font-weight: 600; letter-spacing: 0.16em; color: #AE252F">ПРАВИЛА ЧГГ</div><img src="./assets/logo-dark.png" alt="" style="height: 64px; width: auto"></div>
+<div style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 34px; line-height: 1.1">Кратко, на&nbsp;одну минуту чтения</div>
+<ol style="margin: 0; padding: 0 0 0 22px; display: flex; flex-direction: column; gap: 14px; font-size: 17px; line-height: 1.5; color: #3A332E">
+<li>[Правило 1 — из буклета]</li>
+<li>[Правило 2 — из буклета]</li>
+<li>[Правило 3 — из буклета]</li>
+<li>[Правило 4 — из буклета]</li>
+</ol>
+<div style="padding: 14px 16px; border-radius: 10px; background: #F2EADD; font-size: 14px; line-height: 1.5; color: #5A5048">Место для краткой выжимки правил из&nbsp;буклета. Пришлите текст&nbsp;— подставлю.</div>
+</div>
+</section>
+
+<!-- ============ 7. ПУТЬ В НАСТОЯЩЕЕ ШОУ ============ -->
+<section class="m-prize" style="position: relative; flex-shrink: 0; height: 700px; box-sizing: border-box; background: #0E0B0A; color: #F2EADD; overflow: hidden">
+<img src="./assets/518a1b1415a1d258323490e5f06aaef2.jpg" alt="Съёмка ЧГГ в студии" class="m-prize-img" style="position: absolute; right: 0; top: 0; width: 62%; height: 100%; object-fit: cover; object-position: 50% 40%; opacity: 0.85">
+<div class="m-hide" style="position: absolute; inset: 0; background: linear-gradient(90deg, #0E0B0A 38%, rgba(14,11,10,0.55) 60%, rgba(14,11,10,0) 85%)"></div>
+<div class="m-prize-copy" style="position: relative; height: 100%; box-sizing: border-box; padding: 110px 80px; display: flex; flex-direction: column; justify-content: center; gap: 28px; max-width: 760px">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.16em; color: #C9A24A">ГЛАВНЫЙ ПРИЗ СЕЗОНА</div>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 84px; line-height: 0.98; letter-spacing: -0.01em">Лучшие команды сезона сыграют <em style="color: #E8C774; font-weight: 500">в&nbsp;настоящем шоу</em></h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: rgba(242,234,221,0.8); max-width: 600px">Серия игр в&nbsp;течение года, общий зачёт&nbsp;— и&nbsp;лучшие приезжают в&nbsp;студию на&nbsp;съёмки специального выпуска. Тот самый стол, тот самый голос из-за&nbsp;ширмы.</p>
+<div style="display: flex; align-items: center; gap: 18px; padding-top: 10px">
+<img src="./assets/wolf-statue.jpg" alt="Статуэтка Волка" style="width: 64px; height: 84px; object-fit: cover; border-radius: 8px">
+<div style="font-size: 15px; line-height: 1.5; color: rgba(242,234,221,0.7)">А&nbsp;победителям каждого вечера&nbsp;— статуэтка Волка ЧГГ.</div>
+</div>
+</div>
+</section>
+
+<!-- ============ 8. ФОРМАТЫ ============ -->
+<section id="formaty" class="m-pad m-sec" style="flex-shrink: 0; box-sizing: border-box; padding: 100px 80px 50px; background: #F2EADD; display: flex; flex-direction: column; gap: 50px">
+<h2 class="m-h2" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 72px; line-height: 1; letter-spacing: -0.01em">Два способа <em style="color: #AE252F; font-weight: 500">сыграть</em></h2>
+<div class="m-1col" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<div class="m-card" style="background: #FFFFFF; border-radius: 20px; padding: 44px; display: flex; flex-direction: column; gap: 18px">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.16em; color: #AE252F">ДЛЯ КОМПАНИЙ</div>
+<div class="m-card-t" style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 42px; line-height: 1.05">Корпоратив, день рождения, банкет</div>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #5A5048">Приезжаем к&nbsp;вам и&nbsp;проводим вечер в&nbsp;формате ЧГГ. Персональные вопросы и&nbsp;шутки про вашу компанию, комики, звезда за&nbsp;столом&nbsp;— по&nbsp;выбору.</p>
+</div>
+<div class="m-card" style="background: #1A1614; color: #F2EADD; border-radius: 20px; padding: 44px; display: flex; flex-direction: column; gap: 18px">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.16em; color: #E8C774">ДЛЯ ПЛОЩАДОК</div>
+<div class="m-card-t" style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 42px; line-height: 1.05">Франшиза ЧГГ-Live в&nbsp;вашем городе</div>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: rgba(242,234,221,0.75)">Регулярные игры на&nbsp;вашей площадке с&nbsp;местными ведущими и&nbsp;комиками. Ваши команды&nbsp;— в&nbsp;общем зачёте сезона.</p>
+</div>
+</div>
+</section>
+
+<!-- ============ 9. ЗАЯВКА ============ -->
+<section id="zayavka" class="m-pad m-apply-sec" style="flex-shrink: 0; box-sizing: border-box; padding: 60px 80px 70px; background: #F2EADD">
+<div class="m-apply" style="background: #AE252F; color: #FFFFFF; border-radius: 24px; padding: 64px; display: grid; grid-template-columns: minmax(0, 1fr) 520px; gap: 64px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<h2 class="m-h2" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 64px; line-height: 1">Уважаемые знатоки, <em style="font-weight: 500; color: #F2EADD">ваш ход</em></h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.85)">Оставьте контакт&nbsp;— расскажем о&nbsp;форматах, датах и&nbsp;условиях.</p>
+</div>
+<form class="m-form" style="background: #FFFFFF; color: #1A1614; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">Имя и&nbsp;компания<input style="height: 52px; border: 1px solid #C9B8A0; border-radius: 10px; padding: 0 14px; font-family: 'Manrope', sans-serif; font-size: 16px"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">Телефон или Telegram<input style="height: 52px; border: 1px solid #C9B8A0; border-radius: 10px; padding: 0 14px; font-family: 'Manrope', sans-serif; font-size: 16px"></label>
+<div style="display: flex; gap: 10px">
+<label style="flex: 1; height: 48px; border: 1px solid #C9B8A0; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px"><input type="radio" name="fmt" checked=""> Корпоратив</label>
+<label style="flex: 1; height: 48px; border: 1px solid #C9B8A0; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px"><input type="radio" name="fmt"> Площадка</label>
+</div>
+<button type="button" style="height: 56px; border: 0; border-radius: 999px; background: #1A1614; color: #F2EADD; font-family: 'Manrope', sans-serif; font-size: 17px; font-weight: 600">Отправить заявку</button>
+</form>
+</div>
+<footer class="m-foot" style="padding-top: 40px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #5A5048">
+<img src="./assets/logo-dark.png" alt="ЧГГ Live" style="height: 64px; width: auto; display: block">
+<span>Живой формат шоу «Ошуительное Хоу» · [контакты]</span>
+</footer>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":8000}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
 </body>
 </html>
