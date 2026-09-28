@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ЧГГ-Live — варианты лендинга</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E0B0A;--card:#17120F;--line:rgba(201,162,74,.25);--gold:#C9A24A;--text:#F2EADD;--muted:#B9AFA3;--red:#8E1B24}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,sans-serif;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding:56px 24px 72px}
+.eyebrow{color:var(--gold);font-size:13px;letter-spacing:.18em;text-transform:uppercase}
+h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(40px,6vw,68px);line-height:1.05;margin:14px 0 18px}
+h1 em{color:var(--gold);font-weight:600}
+.lead{color:var(--muted);font-size:18px;max-width:720px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;margin-top:48px}
+.card{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column}
+.shot{display:block;aspect-ratio:1000/625;overflow:hidden;border-bottom:1px solid var(--line);background:#000}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .4s}
+.shot:hover img{transform:scale(1.03)}
+.body{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
+.num{color:var(--gold);font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;margin:6px 0 10px;line-height:1.1}
+.body p{color:var(--muted);margin:0 0 20px;font-size:15px;flex:1}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;height:42px;padding:0 18px;border:1px solid var(--gold);color:var(--text);text-decoration:none;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.btn.primary{background:var(--gold);color:#1a1310;font-weight:600}
+.btn:hover{background:#e0bb62;color:#1a1310}
+.note{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<main class="wrap">
+<div class="eyebrow">ЧГГ-Live · концепции лендинга</div>
+<h1>Три варианта <em>на выбор</em></h1>
+<p class="lead">Живой формат шоу из «Ошуительного Хоу». Ниже — три концепции посадочной страницы. Откройте каждую, пролистайте до конца и выберите направление, которое будем доводить.</p>
+
+<div class="grid">
+<article class="card">
+<a class="shot" href="stol/"><img src="previews/stol.jpg" alt="Вариант «Стол»" loading="lazy"></a>
+<div class="body">
+<div class="num">Вариант 1</div>
+<h2>«Стол» — кино-версия</h2>
+<p>Страница как выпуск шоу: тёмная студия, красный стол, три голоса по очереди садятся за него. Вечер в трёх актах, «что в коробке» как у настольной игры, форматы в виде приглашений.</p>
+<div class="actions"><a class="btn primary" href="stol/">Открыть</a></div>
+</div>
+</article>
+
+<article class="card">
+<a class="shot" href="golosa/"><img src="previews/golosa.jpg" alt="Вариант «Три голоса»" loading="lazy"></a>
+<div class="body">
+<div class="num">Вариант 2</div>
+<h2>«Три голоса»</h2>
+<p>Ведущий, Академик и Гарик Харламов рассказывают о формате от первого лица. Короткая версия — сжатая живая страница; полная — развёрнутые монологи и правила игры.</p>
+<div class="actions"><a class="btn primary" href="golosa/">Короткая версия</a><a class="btn" href="golosa-full/">Полная версия</a></div>
+</div>
+</article>
+
+<article class="card">
+<a class="shot" href="nabrosok/"><img src="previews/nabrosok.jpg" alt="Вариант «Набросок»" loading="lazy"></a>
+<div class="body">
+<div class="num">Вариант 3</div>
+<h2>«Набросок» — в стиле логотипа</h2>
+<p>Светлая страница в графике волка из логотипа: рукописные пометки, зачёркивания, полароидные фото. Самый дерзкий и «живой» по тону вариант.</p>
+<div class="actions"><a class="btn primary" href="nabrosok/">Открыть</a></div>
+</div>
+</article>
+</div>
+
+<p class="note">Это дизайн-макеты, а не готовый сайт: тексты в квадратных скобках — места под данные, формы заявок пока не отправляются. Страницы рассчитаны на компьютер; на телефоне открываются уменьшенными целиком.</p>
+</main>
+</body>
+</html>
