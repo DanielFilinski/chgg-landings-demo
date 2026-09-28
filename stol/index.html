@@ -41,8 +41,10 @@ a{color:#F2EADD}a:hover{color:#FFFFFF}
 .m-sec{padding:72px var(--gut)!important;gap:40px!important}
 .m-stack{grid-template-columns:minmax(0,1fr)!important;gap:28px!important}
 .m-h2{font-size:clamp(46px,12vw,80px)!important}
-/* «Не хватает игроков» склеено неразрывными пробелами — строка должна влезть целиком */
+/* На мобильном «Не хватает игроков» идёт одной строкой, размер подобран под это. На десктопе колонка
+   уже фразы, поэтому там перенос разрешён — иначе заголовок уезжает под форму */
 .m-h2-nowrap{font-size:clamp(34px,9.6vw,80px)!important}
+.m-h2-nowrap>span{white-space:nowrap}
 .m-acts{grid-template-columns:minmax(0,1fr)!important}
 .m-act{padding:28px 0!important;border-left:0!important;border-bottom:1px solid #1A1614}
 .m-act-t{font-size:34px!important}
@@ -219,7 +221,7 @@ a{color:#F2EADD}a:hover{color:#FFFFFF}
 <div class="m-rsvp" style="width: 1000px; display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: 64px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 22px">
 <div style="font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A24A">Новая партия</div>
-<h2 class="m-h2 m-h2-nowrap" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 84px; line-height: 0.95">Стол готов. <span style="font-style: italic; color: #E8C774">Не&nbsp;хватает&nbsp;игроков.</span></h2>
+<h2 class="m-h2 m-h2-nowrap" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 84px; line-height: 0.95">Стол готов. <span style="font-style: italic; color: #E8C774">Не хватает игроков.</span></h2>
 <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #B9AFA3">Расскажите про повод и&nbsp;площадку. Мы&nbsp;предложим состав звёзд, комплектацию вечера и&nbsp;пару вопросов лично про&nbsp;вас.</p>
 <div style="font-size: 16px; color: #D8CFC2">Или напишите: [телефон · Telegram · почта]</div>
 </div>
