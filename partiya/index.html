@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ЧГГ-Live — лендинг «Партия до шести»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- Табло: логотип, раунды и счёт. Каждый пройденный раунд — очко знатокам -->
+<header class="bar">
+  <a class="bar__logo" href="#top" aria-label="ЧГГ Live — в начало">
+    <img src="./assets/logo-light.png" alt="">
+    <span>ЧГГ <em>Live</em></span>
+  </a>
+  <nav class="bar__nav" aria-label="Раунды">
+    <a href="#golos" data-nav="1"><b>1</b>Голос</a>
+    <a href="#vopros" data-nav="2"><b>2</b>Вопрос</a>
+    <a href="#lichno" data-nav="3"><b>3</b>Лично</a>
+    <a href="#vecher" data-nav="4"><b>4</b>Вечер</a>
+    <a href="#pravila" data-nav="5"><b>5</b>Правила</a>
+    <a href="#final" data-nav="6"><b>6</b>Суперфинал</a>
+  </nav>
+  <div class="score" aria-live="polite">
+    <span class="score__team">Знатоки</span>
+    <span class="score__num" data-score>0</span>
+    <span class="score__sep">:</span>
+    <span class="score__num">0</span>
+    <span class="score__team">Ведущий</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= ЗАСТАВКА ================= -->
+<section class="hero" id="top">
+  <div class="hero__stage">
+    <div class="bulbs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="hero__rec"><span class="rec-dot"></span>Эфир · Выпуск первый, живой</div>
+    <p class="kicker">Живой формат шоу из «Ошуительного Хоу»</p>
+    <h1 class="hero__title">Шесть лет вы смотрели ЧГГ по&nbsp;ту сторону экрана. <em>Теперь&nbsp;— за&nbsp;столом.</em></h1>
+    <p class="hero__lead">Играем до шести очков. Каждый раунд этой страницы&nbsp;— очко вашей команде. А&nbsp;рассказывать будут те, кто делает шоу, каждый как умеет.</p>
+
+    <div class="plates">
+      <a class="plate" href="#golos">
+        <span class="plate__role">Говорит из-за ширмы</span>
+        <span class="plate__name">Господин Ведущий</span>
+        <span class="plate__round">Раунд 1</span>
+      </a>
+      <a class="plate" href="#vopros">
+        <span class="plate__role">Задаёт вопросы</span>
+        <span class="plate__name">Господин Академик</span>
+        <span class="plate__round">Раунд 2</span>
+      </a>
+      <a class="plate" href="#lichno">
+        <span class="plate__role">Пишет лично</span>
+        <span class="plate__name">Гарик Харламов</span>
+        <span class="plate__round">Раунд 3</span>
+      </a>
+    </div>
+  </div>
+  <a class="hero__cue" href="#golos">Начать партию <span aria-hidden="true">↓</span></a>
+</section>
+
+<!-- ================= РАУНД 1. ГОЛОС ================= -->
+<section class="round voice" id="golos" data-round="1" data-take="1">
+  <div class="round__head">
+    <p class="round__label"><span>Раунд 1</span> Голос</p>
+    <h2 class="round__title">Его никто не&nbsp;видел. <em>Его голос знают все.</em></h2>
+  </div>
+
+  <div class="voice__grid">
+    <aside class="booth">
+      <div class="booth__stick">
+        <svg class="screen" viewBox="0 0 300 250" role="img" aria-label="Ширма, из-за которой видна только шляпа Ведущего">
+          <defs>
+            <linearGradient id="silk" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#B8262E"/>
+              <stop offset="1" stop-color="#6E141A"/>
+            </linearGradient>
+            <pattern id="damask" width="16" height="16" patternUnits="userSpaceOnUse">
+              <path d="M8 2 L10 8 L8 14 L6 8 Z" fill="#000" opacity=".14"/>
+            </pattern>
+          </defs>
+          <g class="screen__hat">
+            <path d="M121 64 C121 40 132 30 150 30 C168 30 179 40 179 64 Z" fill="#15110F"/>
+            <path d="M125 56 H175 V63 H125 Z" fill="#2A1F1A"/>
+            <ellipse cx="150" cy="66" rx="50" ry="8" fill="#15110F"/>
+          </g>
+          <g stroke="#D8AE55" stroke-width="2.5" stroke-linejoin="round">
+            <path d="M22 96 L100 84 L100 226 L22 214 Z" fill="url(#silk)"/>
+            <path d="M22 96 L100 84 L100 226 L22 214 Z" fill="url(#damask)"/>
+            <path d="M100 84 Q150 58 200 84 L200 226 L100 226 Z" fill="url(#silk)"/>
+            <path d="M100 84 Q150 58 200 84 L200 226 L100 226 Z" fill="url(#damask)"/>
+            <path d="M200 84 L278 96 L278 214 L200 226 Z" fill="url(#silk)"/>
+            <path d="M200 84 L278 96 L278 214 L200 226 Z" fill="url(#damask)"/>
+          </g>
+          <g stroke="#D8AE55" stroke-width="2.5" stroke-linecap="round">
+            <path d="M30 216 V238 M92 226 V244 M108 226 V244 M192 226 V244 M208 226 V244 M270 216 V238"/>
+          </g>
+        </svg>
+        <div class="wave" aria-hidden="true"></div>
+        <p class="booth__who">Господин Ведущий<span>в эфире · из-за ширмы</span></p>
+        <div class="takes" role="group" aria-label="Вариант вступления">
+          <button type="button" data-take-btn="1" aria-pressed="true">Дубль 1</button>
+          <button type="button" data-take-btn="2" aria-pressed="false">Дубль 2</button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="captions">
+      <p class="cap" data-take="1">Здравствуйте, уважаемые знатоки. Это Господин Ведущий, прямиком из студии ЧГГ.</p>
+      <p class="cap" data-take="1">И да, при обращении к вам я не ошибся.</p>
+      <p class="cap" data-take="1">Спустя шесть лет ЧГГ выходит в лайв-формат, а значит, любой из вас, наши дорогие зрители, наконец-то сам сможет стать знатоком.</p>
+
+      <p class="cap" data-take="2">Приветствую вас, уважаемые знатоки. Да, именно знатоки,</p>
+      <p class="cap" data-take="2">ведь теперь каждый из вас может стать полноправным участником клуба ЧГГ.</p>
+      <p class="cap" data-take="2">Шесть лет наше шоу выходило онлайн, но настал момент сделать новый шаг.</p>
+      <p class="cap" data-take="2">Я долго думал, господин Академик делал расчёты, а Гарик Харламов просто кивнул. И всё, мы решили: даёшь ЧГГ-Live!</p>
+
+      <p class="cap">ЧГГ — это развлекательно-интеллектуальное шоу, где вы вместе с друзьями, коллегами и близкими становитесь одной командой,</p>
+      <p class="cap">чтобы сообща отвечать на самые интересные, смешные и разнообразные вопросы.</p>
+      <p class="cap">Моя главная задача — чтобы вам было хорошо. В этом и заключается суть ЧГГ.</p>
+      <p class="cap">Не просто отвечать на вопросы. И не проклинать свою команду, когда никто не может ответить правильно, как это часто бывает в других викторинах и квизах.</p>
+      <p class="cap">Нет. Здесь мне важно, чтобы каждый из вас, уважаемые знатоки, чувствовал себя хорошо.</p>
+      <p class="cap">Поэтому в ЧГГ вас ждут:</p>
+
+      <div class="cap cap--lt"><span class="lt__tag">В программе</span><span class="lt__text">Не душные, а интересные и забавные вопросы. За них лично отвечает наш Академик.</span></div>
+      <div class="cap cap--lt"><span class="lt__tag">В программе</span><span class="lt__text">Шутки, прожарка и фирменный стиль проведения от меня, то есть от Господина Ведущего.</span></div>
+      <div class="cap cap--lt"><span class="lt__tag">В программе</span><span class="lt__text">Выступления и музыкальные номера от лучших комиков.</span></div>
+      <div class="cap cap--lt"><span class="lt__tag">В программе</span><span class="lt__text">Возможность сыграть за одним столом с популярными и известными людьми.</span><span class="lt__note">Получается, сыграть с Домиником Джокером не получится.</span></div>
+
+      <p class="cap">Всё это ждёт вас на играх ЧГГ, но уже в живом формате.</p>
+      <p class="cap">И кто знает, что ещё будет? Глядишь, позовём лучших игроков сезона прямо к нам в студию, на съёмки специального выпуска. Всё возможно в ЧГГ!</p>
+      <p class="cap">Правила ЧГГ очень простые. Они будут понятны всем, даже Джигану.</p>
+      <p class="cap cap--aside">И да, он тоже был у нас. А если уж он смог, значит, вы точно всё поймёте. <a href="#pravila">Правила — в пятом раунде ↓</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= РАУНД 2. ВОПРОС ================= -->
+<section class="round quiz" id="vopros" data-round="2">
+  <div class="round__head">
+    <p class="round__label"><span>Раунд 2</span> Вопрос</p>
+    <h2 class="round__title">Внимание, вопрос. <em>Задаёт Академик.</em></h2>
+  </div>
+
+  <div class="quiz__grid">
+    <div class="quiz__cards">
+
+      <article class="q q--main" data-timer="60">
+        <header class="q__head">
+          <span class="q__num">Вопрос 1 из 5</span>
+          <span class="timer" aria-label="Таймер, секунд">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17"/><circle class="timer__run" cx="20" cy="20" r="17"/></svg>
+            <b data-timer-val>60</b>
+          </span>
+        </header>
+        <p class="q__lead">Привет, друзья. Это господин Академик ЧГГ. И сразу же вопрос:</p>
+        <h3 class="q__text">Что будет, если шоу, которое Гарик Харламов, Господин Ведущий и я создаём и развиваем шесть лет, которое собирает у экранов множество знатоков по всему миру, которое не только прокачивает интеллект и увлекает командной игрой, но и заметно так веселит, — так вот, что будет, если участие в этом шоу станет доступно каждому?</h3>
+        <div class="q__answer">
+          <p class="q__label">Досрочный ответ</p>
+          <p class="q__big">Будет ЧГГ-Live!</p>
+        </div>
+        <button class="q__btn" type="button">Досрочный ответ</button>
+      </article>
+
+      <article class="q">
+        <header class="q__head"><span class="q__num">Вопрос 2 из 5</span></header>
+        <h3 class="q__text">Что такое ЧГГ?</h3>
+        <div class="q__answer">
+          <p class="q__label">Ответ</p>
+          <p>Это шоу, которое сделает из вас и ваших близких настоящую команду. Вместе вы будете приходить к правильным ответам на самые разные вопросы.</p>
+          <p>А между вопросами — весело проводить время, смеяться над шутками Господина Ведущего, получать визуальный оргазм от музыкальных номеров и выступлений лучших комиков. И, конечно же, персональные вопросы от меня обеспечены!</p>
+        </div>
+        <button class="q__btn" type="button">Ответить</button>
+      </article>
+
+      <article class="q">
+        <header class="q__head"><span class="q__num">Вопрос 3 из 5</span></header>
+        <h3 class="q__text">Какими не должны быть лица знатоков во время игры?</h3>
+        <div class="q__answer">
+          <p class="q__label">Ответ</p>
+          <p class="q__big">Кислыми.</p>
+          <p>Для меня важно, чтобы во время игры ваши глаза не были обречёнными, а лица — кислыми, как будто вы смотрите телеканал «Культура». ЧГГ покажет вам, что культурно провести время можно ещё и весело.</p>
+        </div>
+        <button class="q__btn" type="button">Ответить</button>
+      </article>
+
+      <article class="q">
+        <header class="q__head"><span class="q__num">Вопрос 4 из 5</span></header>
+        <h3 class="q__text">Почему Академику так важна персонализация?</h3>
+        <div class="q__answer">
+          <p class="q__label">Ответ</p>
+          <p>Ну потому что я Академик, а это слово звучит умно. И ещё потому, что мы готовы сделать для вас ЧГГ таким, каким выберете вы.</p>
+          <dl class="blitz">
+            <div><dt>Персональные шутки от Господина Ведущего?</dt><dd>Пожалуйста!</dd></div>
+            <div><dt>Личный вопрос от меня?</dt><dd>Пожалуйста!</dd></div>
+            <div><dt>Хотите, чтобы с вами за одним столом играл известный комик?</dt><dd>Вообще легко!</dd></div>
+          </dl>
+          <p>Всё возможно в ЧГГ.</p>
+        </div>
+        <button class="q__btn" type="button">Ответить</button>
+      </article>
+
+      <article class="q">
+        <header class="q__head"><span class="q__num">Вопрос 5 из 5</span></header>
+        <h3 class="q__text">Кто ручается, что это будет ваш лучший опыт участия в интеллектуально-развлекательных шоу?</h3>
+        <div class="q__answer">
+          <p class="q__label">Ответ</p>
+          <p class="q__big">Я. Лично.</p>
+          <p>Всё, что для этого нужно, — <a href="#hod">просто связаться с нами</a>. Ну и ещё можно <a href="#pravila">прочитать правила</a>, чтобы точно знать, что вас ждёт.</p>
+        </div>
+        <button class="q__btn" type="button">Ответить</button>
+      </article>
+    </div>
+
+    <aside class="author">
+      <div class="author__stick">
+        <img src="./assets/akademik.png" alt="Господин Академик" loading="lazy">
+        <p class="author__cap">Господин Академик<span>Шесть лет пишет вопросы для ЧГГ. Для вашего вечера напишет тоже.</span></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= РАУНД 3. ЛИЧНО ================= -->
+<section class="round chat-round" id="lichno" data-round="3">
+  <div class="round__head">
+    <p class="round__label"><span>Раунд 3</span> Лично</p>
+    <h2 class="round__title">Написал сам. <em>Больше двух предложений.</em></h2>
+  </div>
+
+  <div class="chat-round__grid">
+    <figure class="garik">
+      <img src="./assets/garik.png" alt="Гарик Харламов" loading="lazy">
+      <figcaption>Гарик Харламов<span>Любит игры. ЧГГ — любимая.</span></figcaption>
+    </figure>
+
+    <div class="phone">
+      <div class="phone__top">
+        <span class="phone__ava" aria-hidden="true"><img src="./assets/garik.png" alt=""></span>
+        <span class="phone__who">Гарик Харламов<small>был в сети в 13:58 · утро не считается</small></span>
+      </div>
+
+      <ol class="chat" aria-label="Сообщения от Гарика Харламова">
+        <li class="chat__day">Сегодня</li>
+        <li class="msg"><p>Доброго времени суток.</p><time>14:02</time></li>
+        <li class="msg"><p>В моём случае это любое время суток, кроме утра.</p><time>14:02</time></li>
+        <li class="msg"><p>Да, это Гарик Харламов.</p><time>14:03</time></li>
+        <li class="msg"><p>Вы, наверное, думаете, что это какой-то фейк. Что настоящему Гарику было бы лень писать больше двух предложений.</p><time>14:05</time></li>
+        <li class="msg"><p>Но ради такого повода я всё-таки решил написать лично!</p><time>14:09</time></li>
+        <li class="chat__sys">Гарик Харламов написал больше двух предложений. Личный рекорд</li>
+        <li class="msg"><p>Многие знают, что я люблю игры. И вот, спустя шесть лет, моя любимая игра — ЧГГ — выходит в лайв-формат!</p><time>14:11</time></li>
+        <li class="msg"><p>Шесть лет вы вместе со мной смеялись над шутками Господина Ведущего, ждали новых вопросов, ругали комиков за тупые ответы.</p><time>14:12</time></li>
+        <li class="msg"><p>Теперь вы можете стать частью этой легендарной истории. И не только как зрители. Да, вы можете стать прям её участниками.</p><time>14:12</time></li>
+        <li class="msg"><p>Что такое ЧГГ? Это такая штучка, благодаря которой в вашей компании или на вашем празднике может стать очень весело.</p><time>14:15</time></li>
+        <li class="msg"><p>Командная развлекательно-интеллектуальная игра. Вы в команде с друзьями, коллегами или близкими (да что там близкими, можете даже тёщу с собой в команду взять, если оно вам надо)…</p><time>14:16</time></li>
+        <li class="msg"><p>…не просто душитесь вопросами и не ломаете голову «Боже, как на это ответить?!», а весело, с юмором и сообща приходите к правильным ответам.</p><time>14:16</time></li>
+        <li class="msg"><p>Правила игры максимально простые:</p><time>14:17</time></li>
+        <li class="msg msg--fwd">
+          <span class="fwd__from">Переслано из «Правила ЧГГ»</span>
+          <p>[Краткая выжимка правил из буклета]</p>
+          <a href="#pravila">Все правила — в пятом раунде</a>
+          <time>14:17</time>
+        </li>
+        <li class="msg"><p>Но и это ещё не всё! Помимо вопросов и игры вас ждёт много чего ещё:</p><time>14:20</time></li>
+        <li class="msg msg--list">
+          <ul>
+            <li>фирменные шутки Господина Ведущего;</li>
+            <li>филигранные вопросы от нашего Академика;</li>
+            <li>возможность сыграть за одним столом с известными комиками;</li>
+            <li>юмористические и музыкальные номера от лучших комиков.</li>
+          </ul>
+          <time>14:21</time>
+        </li>
+        <li class="msg"><p>Кто знает, может, и со мной… если я не просплю</p><time>14:21</time></li>
+        <li class="msg"><p>Всё это и многое другое вы теперь сможете прожить вместе с нами. А там, глядишь, сделаем специальный выпуск с лучшими игроками по итогам сезона.</p><time>14:24</time></li>
+        <li class="msg"><p>Звучит круто?</p><time>14:24</time></li>
+        <li class="msg"><p>Как по мне — да.</p><time>14:25</time></li>
+      </ol>
+
+      <div class="replies" role="group" aria-label="Ответить Гарику">
+        <button type="button" data-reply="Звучит круто">Звучит круто</button>
+        <button type="button" data-reply="Хочу играть с Гариком за одним столом" data-star>Хочу с Гариком за стол</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= РАУНД 4. ВЕЧЕР ================= -->
+<section class="round rundown" id="vecher" data-round="4">
+  <div class="round__head">
+    <p class="round__label"><span>Раунд 4</span> Вечер</p>
+    <h2 class="round__title">Как проходит игра. <em>Сценарный план.</em></h2>
+    <p class="round__sub">Квиз весёлый, но на логику: здесь не вспоминают, а догадываются. Командой, штурмом, с озарениями, которых сами от себя не ждали.</p>
+  </div>
+
+  <ol class="rundown__list">
+    <li class="block">
+      <span class="block__n">Блок 1</span>
+      <h3>Квиз от авторов шоу</h3>
+      <p>От трёх до шести туров, у каждого своя механика. Вопросы пишет Академик, отвечаете всей командой.</p>
+    </li>
+    <li class="block">
+      <span class="block__n">Между турами</span>
+      <h3>Паузы с комиками</h3>
+      <p>Стендап и музыкальные номера. Звёзды шоу или комики вашего города.</p>
+    </li>
+    <li class="block block--final">
+      <span class="block__n">Блок 2</span>
+      <h3>Финал как в шоу</h3>
+      <p>Игра до шести очков с Господином Ведущим. Интерактив с комиками или знатоками.</p>
+    </li>
+    <li class="block">
+      <span class="block__n">Финальные титры</span>
+      <h3>Волк победителям</h3>
+      <p>Статуэтка Волка ЧГГ. Нелепый, в бабочке, навсегда.</p>
+    </li>
+  </ol>
+
+  <div class="extras">
+    <p class="extras__t">По вашему выбору</p>
+    <ul>
+      <li>Персональные шутки про вашу компанию</li>
+      <li>Личный вопрос от Академика</li>
+      <li>Известный комик за вашим столом</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= РАУНД 5. ПРАВИЛА ================= -->
+<section class="round rules" id="pravila" data-round="5">
+  <div class="rules__grid">
+    <div class="round__head">
+      <p class="round__label"><span>Раунд 5</span> Правила</p>
+      <h2 class="round__title">Понятно даже <em>Джигану.</em></h2>
+      <p class="round__sub">Он тоже был у нас. А если уж он смог, значит, вы точно всё поймёте.</p>
+      <p class="rules__note">Место для краткой выжимки правил из буклета. Пришлите текст — подставлю.</p>
+    </div>
+    <ol class="deck">
+      <li class="card"><span class="card__n">I</span><p>[Правило 1 — из буклета]</p></li>
+      <li class="card"><span class="card__n">II</span><p>[Правило 2 — из буклета]</p></li>
+      <li class="card"><span class="card__n">III</span><p>[Правило 3 — из буклета]</p></li>
+      <li class="card"><span class="card__n">IV</span><p>[Правило 4 — из буклета]</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= РАУНД 6. СУПЕРФИНАЛ ================= -->
+<section class="round final" id="final" data-round="6">
+  <div class="final__photo" aria-hidden="true"><img src="./assets/studio.jpg" alt="" loading="lazy"></div>
+  <div class="final__inner">
+    <div class="round__head">
+      <p class="round__label"><span>Раунд 6</span> Суперфинал</p>
+      <h2 class="round__title">Лучшие команды сезона сыграют <em>в&nbsp;настоящем шоу.</em></h2>
+      <p class="round__sub">Серия игр в течение года, общий зачёт — и лучшие приезжают к нам в студию на съёмки специального выпуска. Тот самый стол, тот самый голос из-за ширмы.</p>
+    </div>
+    <figure class="trophy">
+      <img src="./assets/wolf.jpg" alt="Волк ЧГГ, рисунок статуэтки" loading="lazy">
+      <figcaption>А победителям каждого вечера — статуэтка Волка.</figcaption>
+    </figure>
+  </div>
+
+  <div class="formats">
+    <h3 class="formats__t">Где сыграть</h3>
+    <div class="formats__list">
+      <article class="ticket">
+        <p class="ticket__k">Для компаний</p>
+        <h4>Корпоратив, день рождения, банкет</h4>
+        <p>Приезжаем к вам и проводим вечер в формате ЧГГ: вопросы и шутки про вашу компанию, комики, звезда за столом — по выбору.</p>
+      </article>
+      <article class="ticket">
+        <p class="ticket__k">Для площадок</p>
+        <h4>Франшиза ЧГГ-Live в вашем городе</h4>
+        <p>Регулярные игры на вашей площадке с местными ведущими и комиками. Ваши команды — в общем зачёте сезона.</p>
+      </article>
+      <article class="ticket">
+        <p class="ticket__k">Онлайн</p>
+        <h4>Для тех, кто далеко</h4>
+        <p>Онлайн-игра с ведущим и звёздным гостем. Для регионов и стран, куда сложно приехать.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ВАШ ХОД ================= -->
+<section class="hod" id="hod">
+  <div class="hod__grid">
+    <div class="hod__copy">
+      <p class="kicker">Счёт открыт</p>
+      <h2 class="hod__title">Уважаемые знатоки, <em>ваш ход.</em></h2>
+      <p>Заполните бланк ответа. Расскажем о форматах, датах и условиях, а Академик начнёт готовить личный вопрос.</p>
+    </div>
+
+    <form class="blank" id="blank" novalidate>
+      <div class="blank__head">
+        <span>Бланк ответа команды</span>
+        <span class="blank__no">№ 001</span>
+      </div>
+      <label class="field">Имя и компания<input name="name" autocomplete="name"></label>
+      <label class="field">Телефон или Telegram<input name="contact" autocomplete="tel"></label>
+
+      <fieldset class="chips">
+        <legend>Формат</legend>
+        <label><input type="radio" name="format" value="company" checked><span>Корпоратив или праздник</span></label>
+        <label><input type="radio" name="format" value="venue"><span>Площадка</span></label>
+        <label><input type="radio" name="format" value="online"><span>Онлайн</span></label>
+      </fieldset>
+
+      <fieldset class="wishes">
+        <legend>Добавить к вечеру</legend>
+        <label><input type="checkbox" name="jokes"><span>Персональные шутки от Ведущего</span><em>Пожалуйста!</em></label>
+        <label><input type="checkbox" name="question"><span>Личный вопрос от Академика</span><em>Пожалуйста!</em></label>
+        <label><input type="checkbox" name="star" data-star-box><span>Известный комик за нашим столом</span><em>Вообще легко!</em></label>
+      </fieldset>
+
+      <button class="blank__send" type="submit">Сдать бланк</button>
+      <p class="blank__status" role="status" hidden>Это демо-страница: бланк пока никуда не отправляется.</p>
+    </form>
+  </div>
+
+  <footer class="foot">
+    <img src="./assets/logo-light.png" alt="ЧГГ Live">
+    <span>Живой формат шоу «Ошуительное Хоу» · [телефон · Telegram · почта]</span>
+  </footer>
+</section>
+
+</main>
+
+<div class="toast" role="status" hidden>
+  <b>6 : 0. Партия ваша.</b>
+  <span>Волк — тоже. Осталось сдать бланк.</span>
+  <a href="#hod">К бланку ↓</a>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
